@@ -1,0 +1,20 @@
+ gastify , Jan Penschuck, penschck@gmail.com
+	
+
+ gastify is a simple notification client for the asterisk plugin app_notify.
+ It sits in background and notifies you about an incoming call and displays
+ number and name of the caller with a simple popup.
+ 
+ Features: 	* call notification
+ 		* call history
+
+ gastify is loosely hacked up with the help of http://www.debian-administration.org/articles/407,
+ http://systhread.net/texts/200506cdaemon1.php, liferea sourcecode and the sampleClient of the app_notify author
+ this is my first c app. but i will try to produce a good code. any suggestions and bugreports are welcome. 
+
+
+ Requirements: 	glib2, gtk2, libnotify
+ 
+ License: 	GPL2
+
+ Author:	Jan Penschuck

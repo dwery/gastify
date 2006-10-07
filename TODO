@@ -1,0 +1,1 @@
+fix compile with -wl, --as-needed
