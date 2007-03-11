@@ -1,0 +1,51 @@
+2006-10-07  penschuck  <penschuck@gmail.com>
+
+    * 1.1 release
+
+2006-10-05  penschuck  <penschuck@gmail.com>
+
+    * changes how the app icon is handled 
+
+2006-10-03  penschuck  <penschuck@gmail.com>
+
+    * added scrollbars to log window
+
+2006-10-03  penschuck  <penschuck@gmail.com>
+
+    * fixed bug with history window-close
+	
+2006-10-02  penschuck  <penschuck@gmail.com>
+
+    * added german translation
+
+2006-10-02  gettextize  <bug-gnu-gettext@gnu.org>
+
+    * Makefile.am (SUBDIRS): Add po.
+    (ACLOCAL_AMFLAGS): Add -I m4.
+    (EXTRA_DIST): Add config.rpath, m4/ChangeLog.
+    * configure.in (AC_OUTPUT): Add po/Makefile.in.
+	
+2006-09-29  penschuck  <penschuck@gmail.com>
+
+    * code reconstruction
+
+2006-09-29  penschuck  <penschuck@gmail.com>
+
+    * replaced my ugly options parser with the glib commandline option parser
+
+2006-09-28  penschuck  <penschuck@gmail.com>
+
+    * added Homepage to the about dialog
+
+2006-09-28  penschuck  <penschuck@gmail.com>
+
+    * added timestamps to history
+
+2006-09-28  penschuck  <penschuck@gmail.com>
+
+    * click again on trayicon closes history window now
+
+
+2006-09-26  penschuck  <penschuck@gmail.com>
+
+    * initial 1.0 release
