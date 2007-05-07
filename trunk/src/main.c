@@ -39,7 +39,7 @@
 static gint port = 40000;
 static gboolean daemonize = FALSE;
 static gboolean version = FALSE;
-gint popuptime = 10;
+gint   popuptime = 10;
 
 static GOptionEntry entries[] = 
 {
@@ -89,12 +89,12 @@ int main(int argc, char *argv[]) {
 	/* get up and running */
 	g_set_prgname("gastify");
 	gtk_window_set_default_icon_name("gastify");
-    gtk_set_locale();
+    	gtk_set_locale();
 	gtk_init(&argc, &argv);
 	
 	/* gettext */
-    setlocale (LC_ALL, "");
-    bindtextdomain("gastify", "/usr/share/locale");
+    	setlocale (LC_ALL, "");
+    	bindtextdomain("gastify", "/usr/share/locale");
 	textdomain("gastify");
 	
 	/* open socket and initialize statusicon */
