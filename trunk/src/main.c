@@ -33,7 +33,7 @@
 #include "gui.h"
 
 #define MAX_MSG 1024
-#define VERSION "1.1"
+#define VERSION "1.2.1"
 #define APPNAME "gastify"
 	
 static gint port = 40000;
