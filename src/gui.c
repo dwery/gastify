@@ -32,7 +32,7 @@
 #include "gui.h"
 
 #define MAX_MSG 1024
-#define VERSION "1.1"
+#define VERSION "1.2"
 #define APPNAME "gastify"
 
 static GtkWidget *menu;
@@ -66,11 +66,12 @@ GtkStatusIcon* initializeGui() {
 
 	gtk_status_icon_position_menu((GtkMenu*)menu, &x, &y, &push_in, icon);
 	g_signal_connect(icon, "popup-menu", GTK_SIGNAL_FUNC(activateMenu), NULL);
-	g_signal_connect(icon, "activate", GTK_SIGNAL_FUNC(onShowHistory), NULL);
+	g_signal_connect(icon, "activate", GTK_SIGNAL_FUNC(onShowHistory), icon);
 	
 	return icon;
 }
 
+/* show libnotify popup */
 void notifyPopup(char *notifyMessage, GtkStatusIcon *icon) {
 	NotifyNotification *notify;
 	notify_init("gastify");
@@ -79,6 +80,7 @@ void notifyPopup(char *notifyMessage, GtkStatusIcon *icon) {
 	notify_notification_attach_to_status_icon(notify, icon);		
 	notify_notification_show(notify, NULL);
 	g_object_unref(G_OBJECT(notify));
+	gtk_status_icon_set_from_icon_name(icon, "gastify_new_call");
 }
 
 /* log call to buffer */
@@ -94,12 +96,13 @@ void addToHistory(gchar *call) {
 	
 	/* assemble line */
 	strcpy(line, timestamp);
-	strcat(line," - ");
+	strcat(line,"\t");
 	char *ptr;
 	ptr = strchr(call, '\n');
 	*ptr = ' ';
 	strcat(line, call);
 
+	/* write to GtkTextView */
 	gtk_text_buffer_get_iter_at_offset(buffer, &iter, -1);
 	gtk_text_buffer_insert(buffer, &iter, line, -1);
 	gtk_text_view_set_buffer((GtkTextView*)textView, buffer);
@@ -111,7 +114,7 @@ void activateMenu() {
 }
 
 /* show about */
-void onShowAbout(GtkWidget *widget, gpointer user_data) {
+void onShowAbout(GtkWidget *widget, gpointer data) {
 	static const char *authors[] = {"Jan Penschuck","penschuck@gmail.com", NULL};
 	gtk_show_about_dialog(NULL,
 							"name", APPNAME,
@@ -126,9 +129,10 @@ void onShowAbout(GtkWidget *widget, gpointer user_data) {
 }
 
 /* show history */
-void onShowHistory() {	
+void onShowHistory(gpointer *data) {
+	gtk_status_icon_set_from_icon_name((GtkStatusIcon*)data, "gastify");
 	if ( !GTK_WIDGET_VISIBLE(historyDialog) ) {
-		gtk_widget_show(historyDialog);		
+		gtk_widget_show(historyDialog);
 	} else {
 		gtk_widget_hide(historyDialog);
 	}
