@@ -85,6 +85,7 @@ void notifyPopup(char *notifyMessage, GtkStatusIcon *icon) {
 
 /* log call to buffer */
 void addToHistory(gchar *call) {
+
 	GtkTextIter iter;
 	char timestamp[255];
 	time_t timet;
@@ -92,7 +93,7 @@ void addToHistory(gchar *call) {
 
 	/* get timestamp */
 	time( &timet );
-	strftime(timestamp, 64, "%X", localtime(&timet));
+	strftime(timestamp, 64, "%a-%R", localtime(&timet));
 	
 	/* assemble line */
 	strcpy(line, timestamp);
