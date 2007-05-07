@@ -14,6 +14,13 @@
 
 @SET_MAKE@
 
+#EXTRA_DIST = \
+#gastify.png \
+#gastify_new_call.png
+#
+#gastifydistpixdir = $(datadir)/pixmaps
+#gastifydistpix_DATA = $(EXTRA_DIST)
+
 srcdir = @srcdir@
 top_srcdir = @top_srcdir@
 VPATH = @srcdir@
@@ -34,6 +41,8 @@ POST_INSTALL = :
 NORMAL_UNINSTALL = :
 PRE_UNINSTALL = :
 POST_UNINSTALL = :
+build_triplet = @build@
+host_triplet = @host@
 subdir = pixmaps
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -51,11 +60,9 @@ am__vpath_adj = case $$p in \
     *) f=$$p;; \
   esac;
 am__strip_dir = `echo $$p | sed -e 's|^.*/||'`;
-am__installdirs = "$(DESTDIR)$(distpixmapdir)" \
-	"$(DESTDIR)$(gastifydistpixdir)"
+am__installdirs = "$(DESTDIR)$(distpixmapdir)"
 distpixmapDATA_INSTALL = $(INSTALL_DATA)
-gastifydistpixDATA_INSTALL = $(INSTALL_DATA)
-DATA = $(distpixmap_DATA) $(gastifydistpix_DATA)
+DATA = $(distpixmap_DATA)
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 ACLOCAL = @ACLOCAL@
 AMDEP_FALSE = @AMDEP_FALSE@
@@ -106,6 +113,7 @@ LTLIBOBJS = @LTLIBOBJS@
 MAKEINFO = @MAKEINFO@
 MKINSTALLDIRS = @MKINSTALLDIRS@
 MSGFMT = @MSGFMT@
+MSGFMT_OPTS = @MSGFMT_OPTS@
 OBJEXT = @OBJEXT@
 PACKAGE = @PACKAGE@
 PACKAGE_BUGREPORT = @PACKAGE_BUGREPORT@
@@ -136,13 +144,21 @@ am__quote = @am__quote@
 am__tar = @am__tar@
 am__untar = @am__untar@
 bindir = @bindir@
+build = @build@
 build_alias = @build_alias@
+build_cpu = @build_cpu@
+build_os = @build_os@
+build_vendor = @build_vendor@
 datadir = @datadir@
 datarootdir = @datarootdir@
 docdir = @docdir@
 dvidir = @dvidir@
 exec_prefix = @exec_prefix@
+host = @host@
 host_alias = @host_alias@
+host_cpu = @host_cpu@
+host_os = @host_os@
+host_vendor = @host_vendor@
 htmldir = @htmldir@
 includedir = @includedir@
 infodir = @infodir@
@@ -162,13 +178,8 @@ sbindir = @sbindir@
 sharedstatedir = @sharedstatedir@
 sysconfdir = @sysconfdir@
 target_alias = @target_alias@
-EXTRA_DIST = \
-gastify.png
-
-gastifydistpixdir = $(datadir)/pixmaps
-gastifydistpix_DATA = $(EXTRA_DIST)
 distpixmapdir = $(datadir)/icons/hicolor/48x48/apps
-distpixmap_DATA = gastify.png
+distpixmap_DATA = gastify.png gastify_new_call.png
 gtk_update_icon_cache = gtk-update-icon-cache -f -t $(datadir)/icons/hicolor
 all: all-am
 
@@ -220,23 +231,6 @@ uninstall-distpixmapDATA:
 	  echo " rm -f '$(DESTDIR)$(distpixmapdir)/$$f'"; \
 	  rm -f "$(DESTDIR)$(distpixmapdir)/$$f"; \
 	done
-install-gastifydistpixDATA: $(gastifydistpix_DATA)
-	@$(NORMAL_INSTALL)
-	test -z "$(gastifydistpixdir)" || $(mkdir_p) "$(DESTDIR)$(gastifydistpixdir)"
-	@list='$(gastifydistpix_DATA)'; for p in $$list; do \
-	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
-	  f=$(am__strip_dir) \
-	  echo " $(gastifydistpixDATA_INSTALL) '$$d$$p' '$(DESTDIR)$(gastifydistpixdir)/$$f'"; \
-	  $(gastifydistpixDATA_INSTALL) "$$d$$p" "$(DESTDIR)$(gastifydistpixdir)/$$f"; \
-	done
-
-uninstall-gastifydistpixDATA:
-	@$(NORMAL_UNINSTALL)
-	@list='$(gastifydistpix_DATA)'; for p in $$list; do \
-	  f=$(am__strip_dir) \
-	  echo " rm -f '$(DESTDIR)$(gastifydistpixdir)/$$f'"; \
-	  rm -f "$(DESTDIR)$(gastifydistpixdir)/$$f"; \
-	done
 tags: TAGS
 TAGS:
 
@@ -275,7 +269,7 @@ check-am: all-am
 check: check-am
 all-am: Makefile $(DATA)
 installdirs:
-	for dir in "$(DESTDIR)$(distpixmapdir)" "$(DESTDIR)$(gastifydistpixdir)"; do \
+	for dir in "$(DESTDIR)$(distpixmapdir)"; do \
 	  test -z "$$dir" || $(mkdir_p) "$$dir"; \
 	done
 install: install-am
@@ -320,7 +314,7 @@ info: info-am
 
 info-am:
 
-install-data-am: install-distpixmapDATA install-gastifydistpixDATA
+install-data-am: install-distpixmapDATA
 
 install-exec-am:
 
@@ -346,19 +340,17 @@ ps: ps-am
 
 ps-am:
 
-uninstall-am: uninstall-distpixmapDATA uninstall-gastifydistpixDATA \
-	uninstall-info-am
+uninstall-am: uninstall-distpixmapDATA uninstall-info-am
 
 .PHONY: all all-am check check-am clean clean-generic distclean \
 	distclean-generic distdir dvi dvi-am html html-am info info-am \
 	install install-am install-data install-data-am \
 	install-distpixmapDATA install-exec install-exec-am \
-	install-gastifydistpixDATA install-info install-info-am \
-	install-man install-strip installcheck installcheck-am \
-	installdirs maintainer-clean maintainer-clean-generic \
-	mostlyclean mostlyclean-generic pdf pdf-am ps ps-am uninstall \
-	uninstall-am uninstall-distpixmapDATA \
-	uninstall-gastifydistpixDATA uninstall-info-am
+	install-info install-info-am install-man install-strip \
+	installcheck installcheck-am installdirs maintainer-clean \
+	maintainer-clean-generic mostlyclean mostlyclean-generic pdf \
+	pdf-am ps ps-am uninstall uninstall-am \
+	uninstall-distpixmapDATA uninstall-info-am
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.
