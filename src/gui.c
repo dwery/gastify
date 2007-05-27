@@ -73,6 +73,7 @@ GtkStatusIcon* initializeGui() {
 
 /* show libnotify popup */
 void notifyPopup(char *notifyMessage, GtkStatusIcon *icon) {
+
 	NotifyNotification *notify;
 	notify_init("gastify");
 	notify = notify_notification_new("gastify", notifyMessage, NULL, NULL);
@@ -81,6 +82,7 @@ void notifyPopup(char *notifyMessage, GtkStatusIcon *icon) {
 	notify_notification_show(notify, NULL);
 	g_object_unref(G_OBJECT(notify));
 	gtk_status_icon_set_from_icon_name(icon, "gastify_new_call");
+	
 }
 
 /* log call to buffer */
@@ -107,15 +109,19 @@ void addToHistory(gchar *call) {
 	gtk_text_buffer_get_iter_at_offset(buffer, &iter, -1);
 	gtk_text_buffer_insert(buffer, &iter, line, -1);
 	gtk_text_view_set_buffer((GtkTextView*)textView, buffer);
+	
 }
 
 /* open menu */
 void activateMenu() {
+
 	gtk_menu_popup((GtkMenu*)menu, NULL, NULL, NULL, NULL, 0, gtk_get_current_event_time());
+	
 }
 
 /* show about */
 void onShowAbout(GtkWidget *widget, gpointer data) {
+
 	static const char *authors[] = {"Jan Penschuck","penschuck@gmail.com", NULL};
 	gtk_show_about_dialog(NULL,
 							"name", APPNAME,
@@ -127,21 +133,26 @@ void onShowAbout(GtkWidget *widget, gpointer data) {
 							"website", "http://gastify.googlepages.com",
 							"authors", authors,
 							NULL);
+							
 }
 
 /* show history */
 void onShowHistory(gpointer *data) {
+
 	gtk_status_icon_set_from_icon_name((GtkStatusIcon*)data, "gastify");
 	if ( !GTK_WIDGET_VISIBLE(historyDialog) ) {
 		gtk_widget_show(historyDialog);
 	} else {
 		gtk_widget_hide(historyDialog);
 	}
+	
 }
 
 /* clear buffer */
 void onClearHistory() {
+
 	buffer = gtk_text_buffer_new(NULL);
 	gtk_text_view_set_buffer((GtkTextView*)textView, buffer);
+	
 }
 
