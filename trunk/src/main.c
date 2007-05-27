@@ -1,7 +1,7 @@
 /* Mi Jul 26 17:50:21 UTC 2006 */
 
 /***************************************************************************
- * Copyright (C) 2006 by Jan Penschuck                                                    
+ * Copyright (C) 2006-2007 by Jan Penschuck                                                    
  *
  *
  * This library is free software; you can redistribute it and/or
@@ -89,7 +89,7 @@ int main(int argc, char *argv[]) {
 	/* get up and running */
 	g_set_prgname("gastify");
 	gtk_window_set_default_icon_name("gastify");
-    	gtk_set_locale();
+  gtk_set_locale();
 	gtk_init(&argc, &argv);
 	
 	/* gettext */

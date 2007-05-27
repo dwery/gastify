@@ -36,10 +36,12 @@
 
 /* watch the socket */
 gboolean watcher(GIOChannel *source, GIOCondition condition, gpointer user_data) {
+
 	gchar *buffer;
 	gsize read;
 	char *cidnum, *cidname, *called;
 	g_io_channel_read_line(source, &buffer, &read, NULL, NULL);
+	
 	if (strchr(buffer,'|')) {
 			cidnum = cidname = called = NULL;
 		
@@ -67,7 +69,8 @@ gboolean watcher(GIOChannel *source, GIOCondition condition, gpointer user_data)
 
 /* set socket up to listen mode */
 void watchSocket(int port, GtkStatusIcon *icon) {
-  	int sd, rc;
+
+  int sd, rc;
 	struct sockaddr_in servAddr;
 
 	if ((sd=socket(AF_INET, SOCK_DGRAM, 0))<0) {
@@ -77,7 +80,7 @@ void watchSocket(int port, GtkStatusIcon *icon) {
   
 	servAddr.sin_family = AF_INET;
 	servAddr.sin_addr.s_addr = INADDR_ANY;
-  	servAddr.sin_port = htons(port);
+  servAddr.sin_port = htons(port);
 
   	if ((rc = bind (sd, (struct sockaddr *) &servAddr,sizeof(servAddr)))<0 || servAddr.sin_port==0) {
 	  printf(_("cannot bind port %d\n"), ntohs(servAddr.sin_port));
