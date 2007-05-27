@@ -32,7 +32,7 @@
 #include "gui.h"
 
 #define MAX_MSG 1024
-#define VERSION "1.2"
+#define VERSION "1.2.1"
 #define APPNAME "gastify"
 
 static GtkWidget *menu;
@@ -93,14 +93,14 @@ void addToHistory(gchar *call) {
 
 	/* get timestamp */
 	time( &timet );
-	strftime(timestamp, 64, "%a-%R", localtime(&timet));
+	strftime(timestamp, 64, "%a\t%R", localtime(&timet));
 	
 	/* assemble line */
 	strcpy(line, timestamp);
-	strcat(line,"\t");
+	strcat(line,": ");
 	char *ptr;
 	ptr = strchr(call, '\n');
-	*ptr = ' ';
+	*ptr = ' '; 
 	strcat(line, call);
 
 	/* write to GtkTextView */
