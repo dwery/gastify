@@ -10,4 +10,4 @@
   <Execute>{BASE}src/{NAME}</Execute>
   <OpenFile>/home/ich/Projekte/c/gastify/gastify/src/gui.c</OpenFile>
   <OpenFile>/home/ich/Projekte/c/gastify/gastify/src/socket.c</OpenFile>
-<OpenFile>/home/ich/Projekte/c/gastify/gastify/src/main.c</OpenFile></OpenLDevProject>
+<OpenFile>/home/ich/Projekte/c/gastify/gastify/src/main.c</OpenFile><OpenFile>/home/ich/Projekte/c/gastify/gastify/ChangeLog</OpenFile></OpenLDevProject>
