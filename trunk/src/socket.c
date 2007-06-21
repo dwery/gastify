@@ -38,8 +38,9 @@
 gboolean watcher(GIOChannel *source, GIOCondition condition, gpointer user_data) {
 
 	gchar *buffer;
+	gchar *notifyMessage;
 	gsize read;
-	char *cidnum, *cidname, *called;
+	gchar *cidnum, *cidname, *called;
 	g_io_channel_read_line(source, &buffer, &read, NULL, NULL);
 	
 	if (strchr(buffer,'|')) {
@@ -49,13 +50,7 @@ gboolean watcher(GIOChannel *source, GIOCondition condition, gpointer user_data)
 			cidname = strsep(&buffer, "|");
 			called = strsep(&buffer, "\0");
 
-			char notifyMessage[255];		
-			strcpy(notifyMessage,_("call from:\n"));
-			strcat(notifyMessage,cidnum);
-			strcat(notifyMessage,", ");
-			strcat(notifyMessage,cidname);
-			strcat(notifyMessage,"\n");
-			
+			notifyMessage = g_strconcat( _("call from:\n"), cidnum, ", ", cidname, "\n", NULL);			
 			notifyPopup(notifyMessage, user_data);
 			addToHistory(notifyMessage);
 	} 

@@ -72,7 +72,7 @@ GtkStatusIcon* initializeGui() {
 }
 
 /* show libnotify popup */
-void notifyPopup(char *notifyMessage, GtkStatusIcon *icon) {
+void notifyPopup(gchar *notifyMessage, GtkStatusIcon *icon) {
 
 	NotifyNotification *notify;
 	notify_init("gastify");
@@ -99,14 +99,14 @@ void addToHistory(gchar *call) {
 	
 	/* assemble line */
 	strcpy(line, timestamp);
-	strcat(line,": ");
+	strcat(line," ");
 	char *ptr;
 	ptr = strchr(call, '\n');
 	*ptr = ' '; 
 	strcat(line, call);
 
 	/* write to GtkTextView */
-	gtk_text_buffer_get_iter_at_offset(buffer, &iter, -1);
+	gtk_text_buffer_get_iter_at_offset(buffer, &iter, 0);
 	gtk_text_buffer_insert(buffer, &iter, line, -1);
 	gtk_text_view_set_buffer((GtkTextView*)textView, buffer);
 	
