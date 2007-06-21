@@ -127,10 +127,11 @@ void onShowAbout(GtkWidget *widget, gpointer data) {
 							"name", APPNAME,
 							"version", VERSION,
 							"license", "GNU General Public License 2",
-							"copyright", "\xc2\xa9 2006 Jan Penschuck",
+							"copyright", "\xc2\xa9 2006-2007 Jan Penschuck",
 							"comments", _("a client for app-notify"),
 							"logo-icon-name", "gastify",
 							"website", "http://gastify.googlepages.com",
+							"website-label", "gastify.googlepages.com",
 							"authors", authors,
 							NULL);
 							
