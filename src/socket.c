@@ -77,7 +77,7 @@ void watchSocket(int port, GtkStatusIcon *icon) {
 	servAddr.sin_addr.s_addr = INADDR_ANY;
   servAddr.sin_port = htons(port);
 
-  	if ((rc = bind (sd, (struct sockaddr *) &servAddr,sizeof(servAddr)))<0 || servAddr.sin_port==0) {
+ 	if ((rc = bind (sd, (struct sockaddr *) &servAddr,sizeof(servAddr)))<0 || servAddr.sin_port==0) {
 	  printf(_("cannot bind port %d\n"), ntohs(servAddr.sin_port));
 	  exit(1);
 	}

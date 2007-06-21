@@ -93,8 +93,8 @@ int main(int argc, char *argv[]) {
 	gtk_init(&argc, &argv);
 	
 	/* gettext */
-    	setlocale (LC_ALL, "");
-    	bindtextdomain("gastify", "/usr/share/locale");
+  setlocale (LC_ALL, "");
+  bindtextdomain("gastify", "/usr/share/locale");
 	textdomain("gastify");
 	
 	/* open socket and initialize statusicon */
