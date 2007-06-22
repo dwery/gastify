@@ -1,11 +1,11 @@
-#possible use with freePBX
+=possible use with freePBX=
 
 
-add this to extensions_custom.conf:
+* add this to extensions_custom.conf:
 {{{
       [from-internal-custom]
       exten => 999,1,Notify(${CALLERIDNUM},${CALLERIDNAME},${EXTEN}/<hostWhereGastifyIsRunningOn>)
       exten => 999,2,Dial(SIP/${EXTEN},10)
-    * replace the red fields with your own choice
-    * add 999# to the extensionlist of a ringroup
 }}}
+* replace the red fields with your own choice
+* add 999# to the extensionlist of a ringroup
