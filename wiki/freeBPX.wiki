@@ -7,5 +7,4 @@
       exten => 999,1,Notify(${CALLERIDNUM},${CALLERIDNAME},${EXTEN}/<hostWhereGastifyIsRunningOn>)
       exten => 999,2,Dial(SIP/${EXTEN},10)
 }}}
-  * replace the red fields with your own choice
   * add 999# to the extensionlist of a ringroup
