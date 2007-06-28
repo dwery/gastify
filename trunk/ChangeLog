@@ -1,3 +1,11 @@
+2007-06-28  penschuck  <penschuck@gmail.com>
+
+    * removed linebreak in notification text
+
+2007-06-28  penschuck  <penschuck@gmail.com>
+
+    * gettext fixes
+
 2007-06-23  penschuck  <penschuck@gmail.com>
 
     * 1.2.1 release
