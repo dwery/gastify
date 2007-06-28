@@ -4,71 +4,57 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
-msgid ""
-msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-09-30 00:10+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
-"Content-Transfer-Encoding: 8bit\n"
+msgid	""
+msgstr	"Project-Id-Version: gastify 1.2.1\n"
+	"Report-Msgid-Bugs-To: \n"
+	"POT-Creation-Date: 2007-06-28 19:46+0200\n"
+	"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+	"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+	"Language-Team: LANGUAGE <LL@li.org>\n"
+	"MIME-Version: 1.0\n"
+	"Content-Type: text/plain; charset=CHARSET\n"
+	"Content-Transfer-Encoding: 8bit\n"
 
-#: src/main.c:56
+msgid	"gastify call notification"
+msgstr	""
+
+msgid	"a client for app-notify"
+msgstr	""
+
+msgid	"call from: "
+msgstr	""
+
+#, c-format
+msgid	"this is not a gastify message. waiting...\n"
+msgstr	""
+
+#, c-format
+msgid	"cannot open socket\n"
+msgstr	""
+
+#, c-format
+msgid	"cannot bind port %d\n"
+msgstr	""
+
+#, c-format
+msgid	"waiting for data on port UDP %i\n"
+msgstr	""
+
+msgid	"call history"
+msgstr	""
+
 msgid "listen on given port"
 msgstr ""
 
-#: src/main.c:57
 msgid "display popup given time"
 msgstr ""
 
-#: src/main.c:57
 msgid "SECONDS"
 msgstr ""
 
-#: src/main.c:58
 msgid "forks in the background"
 msgstr ""
 
-#: src/main.c:59
 msgid "print version info"
 msgstr ""
 
-#: src/socket.c:54
-msgid "call from: "
-msgstr ""
-
-#: src/socket.c:73
-#, c-format
-msgid "failed to send notification\n"
-msgstr ""
-
-#: src/socket.c:80
-#, c-format
-msgid "this is not a gastify message. waiting...\n"
-msgstr ""
-
-#: src/socket.c:93
-#, c-format
-msgid "cannot open socket\n"
-msgstr ""
-
-#: src/socket.c:102
-#, c-format
-msgid "cannot bind port %d\n"
-msgstr ""
-
-#: src/socket.c:109
-#, c-format
-msgid "waiting for data on port UDP %i\n"
-msgstr ""
-
-#: src/gui.c:48
-msgid "gastify call notification"
-msgstr ""
-
-#: src/gui.c:106
-msgid "a client for app-notify"
-msgstr ""
