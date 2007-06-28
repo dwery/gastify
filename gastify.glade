@@ -41,7 +41,7 @@
             <child>
               <widget class="GtkButton" id="button2">
                 <property name="visible">True</property>
-                <property name="label" translatable="yes">gtk-clear</property>
+                <property name="label" translatable="no">gtk-clear</property>
                 <property name="use_stock">True</property>
                 <signal name="clicked" handler="onClearHistory"/>
               </widget>
@@ -49,7 +49,7 @@
             <child>
               <widget class="GtkButton" id="button1">
                 <property name="visible">True</property>
-                <property name="label" translatable="yes">gtk-close</property>
+                <property name="label" translatable="no">gtk-close</property>
                 <property name="use_stock">True</property>
                 <signal name="clicked" handler="gtk_widget_hide" object="window1"/>
               </widget>

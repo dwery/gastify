@@ -1,3 +1,7 @@
+2007-06-23  penschuck  <penschuck@gmail.com>
+
+    * 1.2.1 release
+    
 2007-06-21  penschuck  <penschuck@gmail.com>
 
     * replaced strcpy and strcat with g_strconcat (more secure)
@@ -10,7 +14,7 @@
 
     * code cleanups
 
-2006-03-10  penschuck  <penschuck@gmail.com>
+2007-03-10  penschuck  <penschuck@gmail.com>
 
     * 1.2 release
 

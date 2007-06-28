@@ -1,65 +1,57 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: gastify 1.1\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-10-02 15:18+0200\n"
-"PO-Revision-Date: 2006-10-02 15:19+0100\n"
+"Project-Id-Version: Gastify\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2007-06-28 20:21+0100\n"
 "Last-Translator: penschuck <penschuck@gmail.com>\n"
-"Language-Team: myself\n"
+"Language-Team:  <penschuck@gmail.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: German\n"
 "X-Poedit-Country: GERMANY\n"
+"X-Poedit-SourceCharset: utf-8\n"
 
-#: src/socket.c:53
-msgid "call from:\n"
-msgstr "Anruf von:\n"
+msgid "gastify call notification"
+msgstr "Gastify Anruf Benachrichtigung"
 
-#: src/socket.c:68
-#, c-format
-msgid "failed to send notification\n"
-msgstr "konnte Benachrichtigung nicht senden\n"
+msgid "a client for app-notify"
+msgstr "ein Client für app_notify"
 
-#: src/socket.c:75
+msgid "call from: "
+msgstr "Anruf von: "
+
 #, c-format
 msgid "this is not a gastify message. waiting...\n"
-msgstr "dies ist keine gastify nachricht, warte...\n"
+msgstr "dies ist keine gastify Nachricht, warte...\n"
 
-#: src/socket.c:88
 #, c-format
 msgid "cannot open socket\n"
 msgstr "konnte Socket nicht öffnen\n"
 
-#: src/socket.c:97
 #, c-format
 msgid "cannot bind port %d\n"
 msgstr "kann nicht an Port %d binden\n"
 
-#: src/socket.c:104
 #, c-format
 msgid "waiting for data on port UDP %i\n"
 msgstr "warte auf Daten an Port UDP  %i\n"
 
-#: src/gui.c:48
-msgid "gastify call notification"
-msgstr "Gastify Anruf Benachrichtigung"
-
-#: src/gui.c:106
-msgid "a client for app-notify"
-msgstr "ein Client für app_notify"
-
-#: history-window.glade.h:1
 msgid "call history"
 msgstr "Anrufprotokoll"
 
-#~ msgid "listen on given port"
-#~ msgstr "lausche an Port"
-#~ msgid "display popup given time"
-#~ msgstr "Anzeigedauer des Popups"
-#~ msgid "SECONDS"
-#~ msgstr "SEKUNDEN"
-#~ msgid "forks in the background"
-#~ msgstr "im Hintergrund starten"
-#~ msgid "print version info"
-#~ msgstr "zeige Versionsinfo"
+msgid "listen on given port"
+msgstr "lausche an Port"
+
+msgid "display popup given time"
+msgstr "Anzeigedauer des Popups"
+
+msgid "SECONDS"
+msgstr "SEKUNDEN"
+
+msgid "forks in the background"
+msgstr "im Hintergrund starten"
+
+msgid "print version info"
+msgstr "zeige Versionsinfo"
 
