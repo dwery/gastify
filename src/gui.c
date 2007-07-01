@@ -31,8 +31,7 @@
 #include "socket.h"
 #include "gui.h"
 
-#define MAX_MSG 1024
-#define VERSION "1.2.1"
+#define VERSION "1.2.2"
 #define APPNAME "gastify"
 
 static GtkWidget *menu;
@@ -44,11 +43,13 @@ GtkStatusIcon* initializeGui() {
 
 	/* initialize statusicon */
 	GtkStatusIcon *icon;
+	GladeXML *xml;
+	
 	icon = gtk_status_icon_new_from_icon_name("gastify");
 	gtk_status_icon_set_tooltip(icon, _("gastify call notification"));
 
 	/* load glade stuff */
-	GladeXML *xml = glade_xml_new("/usr/share/gastify/gastify.glade", "menu1", "gastify");
+	xml = glade_xml_new("/usr/share/gastify/gastify.glade", "menu1", "gastify");
 	glade_xml_signal_autoconnect(xml);
 	menu = glade_xml_get_widget(xml, "menu1");
 
@@ -89,23 +90,21 @@ void notifyPopup(gchar *notifyMessage, GtkStatusIcon *icon) {
 void addToHistory(gchar *call) {
 
 	GtkTextIter iter;
-	char timestamp[255];
+	gchar timestamp[255];
 	time_t timet;
-	char line[255];
+	gchar *line;
 
-	/* get timestamp */
+	/* get timestamp and assemble line*/
 	time( &timet );
 	strftime(timestamp, 64, "%a %R\t", localtime(&timet));
-
-	/* assemble line */
-	strcpy(line, timestamp);
-	strcat(line," ");
-	strcat(line, call);
+	line = g_strconcat(timestamp, " ", call, NULL);
 
 	/* write to GtkTextView */
 	gtk_text_buffer_get_iter_at_offset(buffer, &iter, 0);
 	gtk_text_buffer_insert(buffer, &iter, line, -1);
 	gtk_text_view_set_buffer((GtkTextView*)textView, buffer);
+	
+	g_free(line);
 
 }
 
@@ -119,18 +118,31 @@ void activateMenu() {
 /* show about */
 void onShowAbout(GtkWidget *widget, gpointer data) {
 
+	gchar *license = g_strconcat("\nGastify is free software; you can redistribute it and/or modify it under", 
+															"the terms of the GNU General Public License as published by the Free Software Foundation",
+															"either version 2 of the License, or (at your option) any later version.\n\r",
+							 								"Gastify is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; ",
+							 								"without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. ",
+							 								"See the GNU General Public License for more details.\n\r You should have received a copy ",
+							 								"of the GNU General Public License along with Gastify; if not, write to the ",
+							 								"Free Software Foundation, Inc.,59 Temple Place, Suite 330, Boston, MA  02111-1307  USA",
+															NULL);
+	
 	static const char *authors[] = {"Jan Penschuck","penschuck@gmail.com", NULL};
 	gtk_show_about_dialog(NULL,
 							"name", APPNAME,
 							"version", VERSION,
-							"license", "GNU General Public License 2",
+							"license", license,
+							"wrap-license", TRUE,
 							"copyright", "\xc2\xa9 2006-2007 Jan Penschuck",
 							"comments", _("a client for app-notify"),
 							"logo-icon-name", "gastify",
-							"website", "http://gastify.googlepages.com",
-							"website-label", "gastify.googlepages.com",
+							"website", "http://code.google.com/p/gastify/",
+							"website-label", "gastify website",
 							"authors", authors,
 							NULL);
+					
+	g_free(license);
 
 }
 
