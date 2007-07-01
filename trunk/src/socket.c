@@ -49,16 +49,18 @@ gboolean watcher(GIOChannel *source, GIOCondition condition, gpointer user_data)
 			cidnum = strsep(&buffer, "|");
 			cidname = strsep(&buffer, "|");
 			called = strsep(&buffer, "\0");
-
+			
 			notifyMessage = g_strconcat( _("call from: "), cidnum, ", ", cidname, "\n", NULL);
 			notifyPopup(notifyMessage, user_data);
 			addToHistory(notifyMessage);
+
+			g_free(notifyMessage);
+			g_free(buffer);
 	}
 	else {
 			fprintf(stderr, _("this is not a gastify message. waiting...\n"));
 	}
-
-	g_free(buffer);
+	
 	return TRUE;
 }
 

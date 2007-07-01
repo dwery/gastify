@@ -32,8 +32,7 @@
 #include "socket.h"
 #include "gui.h"
 
-#define MAX_MSG 1024
-#define VERSION "1.2.1"
+#define VERSION "1.2.2"
 #define APPNAME "gastify"
 	
 static gint port = 40000;
@@ -53,13 +52,12 @@ static GOptionEntry entries[] =
 int main(int argc, char *argv[]) {
 	
 	/* commandline options */
-	GError *error = NULL;
 	GOptionContext *context;
 
 	context = g_option_context_new ("");
  	g_option_context_add_main_entries(context, entries, "gastify");
 	g_option_context_add_group (context, gtk_get_option_group (TRUE));
-	g_option_context_parse (context, &argc, &argv, &error);
+	g_option_context_parse (context, &argc, &argv, NULL);
 	
 	/* print version info */		
 	if (version) {
@@ -85,6 +83,8 @@ int main(int argc, char *argv[]) {
 			exit(EXIT_FAILURE);
 		}						
 	}	
+	
+	g_option_context_free(context);
 	
 	/* get up and running */
 	g_set_prgname("gastify");
