@@ -2,12 +2,12 @@
  *
  * Copyright (C) 2006-2007 by Jan Penschuck
  *
- * This library is free software; you can redistribute it and/or
+ * Gastify is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
  * License as published by the Free Software Foundation; either
  * version 2 of the License, or (at your option) any later version.
  *
- * This library is distributed in the hope that it will be useful,
+ * Gastify is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Library General Public License for more details.
@@ -44,11 +44,13 @@ GtkStatusIcon* initializeGui() {
 	/* initialize statusicon */
 	GtkStatusIcon *icon;
 	GladeXML *xml;
+	int x, y;
+	gboolean push_in;
 	
 	icon = gtk_status_icon_new_from_icon_name("gastify");
 	gtk_status_icon_set_tooltip(icon, _("gastify call notification"));
 
-	/* load glade stuff */
+	/* load menu */
 	xml = glade_xml_new("/usr/share/gastify/gastify.glade", "menu1", "gastify");
 	glade_xml_signal_autoconnect(xml);
 	menu = glade_xml_get_widget(xml, "menu1");
@@ -59,10 +61,6 @@ GtkStatusIcon* initializeGui() {
 	g_signal_connect(historyDialog, "delete-event", GTK_SIGNAL_FUNC(gtk_widget_hide_on_delete), NULL);
 	textView = glade_xml_get_widget(xml, "textview1");
 	buffer = gtk_text_buffer_new(NULL);
-
-	int x, y;
-	gboolean push_in;
-	x=y=0;
 
 	gtk_status_icon_position_menu((GtkMenu*)menu, &x, &y, &push_in, icon);
 	g_signal_connect(icon, "popup-menu", GTK_SIGNAL_FUNC(activateMenu), NULL);
@@ -95,8 +93,8 @@ void addToHistory(gchar *call) {
 	gchar *line;
 
 	/* get timestamp and assemble line*/
-	time( &timet );
-	strftime(timestamp, 64, "%a %R\t", localtime(&timet));
+	time(&timet);
+	strftime(timestamp, 64, "%a %H:%M \t", localtime(&timet));
 	line = g_strconcat(timestamp, " ", call, NULL);
 
 	/* write to GtkTextView */
@@ -116,7 +114,7 @@ void activateMenu() {
 }
 
 /* show about */
-void onShowAbout(GtkWidget *widget, gpointer data) {
+void onShowAbout() {
 
 	gchar *license = g_strconcat("\nGastify is free software; you can redistribute it and/or modify it under", 
 															"the terms of the GNU General Public License as published by the Free Software Foundation",

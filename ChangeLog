@@ -1,3 +1,11 @@
+2007-07-20  penschuck  <penschuck@gmail.com>
+
+    * compiles now with -Wall -O -W -Wshadow -pedantic
+
+2007-07-01  penschuck  <penschuck@gmail.com>
+
+    * 1.2.2 release
+   
 2007-06-28  penschuck  <penschuck@gmail.com>
 
     * some about window fixes 

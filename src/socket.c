@@ -2,12 +2,12 @@
  *
  * Copyright (C) 2006-2007 by Jan Penschuck
  *
- * This library is free software; you can redistribute it and/or
+ * Gastify is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
  * License as published by the Free Software Foundation; either
  * version 2 of the License, or (at your option) any later version.
  *
- * This library is distributed in the hope that it will be useful,
+ * Gastify is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Library General Public License for more details.
@@ -39,11 +39,11 @@ gboolean watcher(GIOChannel *source, GIOCondition condition, gpointer user_data)
 
 	gchar *buffer;
 	gchar *notifyMessage;
-	gsize read;
+	gsize readed;
 	gchar *cidnum, *cidname, *called;
-	g_io_channel_read_line(source, &buffer, &read, NULL, NULL);
+	g_io_channel_read_line(source, &buffer, &readed, NULL, NULL);
 
-	if (strchr(buffer,'|')) {
+	if (strchr(buffer,'|') && condition == G_IO_IN) {
 			cidnum = cidname = called = NULL;
 
 			cidnum = strsep(&buffer, "|");
@@ -69,6 +69,7 @@ void watchSocket(int port, GtkStatusIcon *icon) {
 
   int sd, rc;
 	struct sockaddr_in servAddr;
+	GIOChannel *gchannel;
 
 	if ((sd=socket(AF_INET, SOCK_DGRAM, 0))<0) {
 		printf(_("cannot open socket\n"));
@@ -84,7 +85,7 @@ void watchSocket(int port, GtkStatusIcon *icon) {
 	  exit(1);
 	}
 
-	GIOChannel *gchannel = g_io_channel_unix_new(sd);
+	gchannel = g_io_channel_unix_new(sd);
 	g_io_add_watch(gchannel, G_IO_IN, watcher, icon);
 
 	printf(_("waiting for data on port UDP %i\n"), port);
