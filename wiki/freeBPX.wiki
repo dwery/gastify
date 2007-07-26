@@ -8,3 +8,4 @@
       exten => 999,2,Dial(SIP/${EXTEN},10)
 }}}
   * add 999# to the extensionlist of a ringroup
+Hint: With [http://www.mezzo.net/asterisk/app_ldap.html app_ldap] you can get real names from your LDAP-Server.
