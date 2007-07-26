@@ -1,4 +1,4 @@
-==possible use with freePBX==
+==possible use with [http://www.freepbx.org/ freePBX]==
 
 
   * add this to extensions_custom.conf:
