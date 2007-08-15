@@ -1,6 +1,6 @@
 == possible use with [http://www.freepbx.org/ freePBX] ==
 
-
+  * add 999# to the extensionlist of a ringroup
   * add this to extensions_custom.conf:
 
 for asterisk <= 1.2
@@ -17,7 +17,5 @@ for asterisk >= 1.2
       exten => 999,1,Notify(${CALLERID(num)},${CALLERID(name)},${EXTEN}/<hostWhereGastifyIsRunningOn>)
       exten => 999,2,Dial(SIP/${EXTEN},10)
 }}}
-
-  * add 999# to the extensionlist of a ringroup
 
 Hint: With [http://www.mezzo.net/asterisk/app_ldap.html app_ldap] you can get real names from your LDAP-Server.
