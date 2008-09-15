@@ -1,6 +1,6 @@
 /**
  *
- * Copyright (C) 2006-2007 by Jan Penschuck
+ * Copyright (C) 2006-2008 by Jan Penschuck
  *
  * Gastify is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
@@ -38,6 +38,7 @@ static GtkWidget *menu;
 static GtkWidget *historyDialog;
 static GtkWidget *textView;
 static GtkTextBuffer *buffer;
+static GtkWidget *toggle;
 
 GtkStatusIcon* initializeGui() {
 
@@ -55,33 +56,42 @@ GtkStatusIcon* initializeGui() {
 	glade_xml_signal_autoconnect(xml);
 	menu = glade_xml_get_widget(xml, "menu1");
 
-	xml = glade_xml_new("/usr/share/gastify/gastify.glade", "window1", "gastify");
-	glade_xml_signal_autoconnect(xml);
-	historyDialog = glade_xml_get_widget(xml, "window1");
-	g_signal_connect(historyDialog, "delete-event", GTK_SIGNAL_FUNC(gtk_widget_hide_on_delete), NULL);
-	textView = glade_xml_get_widget(xml, "textview1");
-	buffer = gtk_text_buffer_new(NULL);
-
+	toggle = glade_xml_get_widget(xml, "notification-toggle");
 	gtk_status_icon_position_menu((GtkMenu*)menu, &x, &y, &push_in, icon);
+	g_signal_connect(historyDialog, "delete-event", GTK_SIGNAL_FUNC(gtk_widget_hide_on_delete), NULL);
 	g_signal_connect(icon, "popup-menu", GTK_SIGNAL_FUNC(activateMenu), NULL);
 	g_signal_connect(icon, "activate", GTK_SIGNAL_FUNC(onShowHistory), icon);
+	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(toggle), TRUE);
+
+	/* load history-window */
+	xml = glade_xml_new("/usr/share/gastify/gastify.glade", "window1", "gastify");
+	glade_xml_signal_autoconnect(xml);
+
+	historyDialog = glade_xml_get_widget(xml, "window1");
+	textView = glade_xml_get_widget(xml, "textview1");
+	buffer = gtk_text_buffer_new(NULL);
 
 	return icon;
 }
 
 /* show libnotify popup */
 void notifyPopup(gchar *notifyMessage, GtkStatusIcon *icon) {
-
+	
 	NotifyNotification *notify;
-
+	
 	notify_init("gastify");
 	notify = notify_notification_new("gastify", notifyMessage, NULL, NULL);
 	notify_notification_set_timeout(notify, popuptime*1000);
 	notify_notification_attach_to_status_icon(notify, icon);
-	notify_notification_show(notify, NULL);
-	g_object_unref(G_OBJECT(notify));
-	gtk_status_icon_set_from_icon_name(icon, "gastify_new_call");
+	
+	if ( gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(toggle))) {
 
+		notify_notification_show(notify, NULL);
+		
+	}
+	
+	gtk_status_icon_set_from_icon_name(icon, "gastify_new_call");
+	g_object_unref(G_OBJECT(notify));
 }
 
 /* log call to buffer */
@@ -100,7 +110,7 @@ void addToHistory(gchar *call) {
 	/* write to GtkTextView */
 	gtk_text_buffer_get_iter_at_offset(buffer, &iter, 0);
 	gtk_text_buffer_insert(buffer, &iter, line, -1);
-	gtk_text_view_set_buffer((GtkTextView*)textView, buffer);
+	gtk_text_view_set_buffer(GTK_TEXT_VIEW(textView), buffer);
 	
 	g_free(line);
 
@@ -109,9 +119,10 @@ void addToHistory(gchar *call) {
 /* open menu */
 void activateMenu() {
 
-	gtk_menu_popup((GtkMenu*)menu, NULL, NULL, NULL, NULL, 0, gtk_get_current_event_time());
+	gtk_menu_popup(GTK_MENU(menu), NULL, NULL, NULL, NULL, 0, gtk_get_current_event_time());
 
 }
+
 
 /* show about */
 void onShowAbout() {
@@ -147,7 +158,7 @@ void onShowAbout() {
 /* show history */
 void onShowHistory(gpointer *data) {
 
-	gtk_status_icon_set_from_icon_name((GtkStatusIcon*)data, "gastify");
+	gtk_status_icon_set_from_icon_name(GTK_STATUS_ICON(data), "gastify");
 	if ( !GTK_WIDGET_VISIBLE(historyDialog) ) {
 		gtk_widget_show(historyDialog);
 	} else {
@@ -160,7 +171,7 @@ void onShowHistory(gpointer *data) {
 void onClearHistory() {
 
 	buffer = gtk_text_buffer_new(NULL);
-	gtk_text_view_set_buffer((GtkTextView*)textView, buffer);
+	gtk_text_view_set_buffer(GTK_TEXT_VIEW(textView), buffer);
 
 }
 
