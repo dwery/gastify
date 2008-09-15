@@ -1,3 +1,7 @@
+2008-09-15  penschuck  <penschuck@gmail.com>
+
+    * added ability to disable notifications in statusicon-menu
+
 2007-07-20  penschuck  <penschuck@gmail.com>
 
     * compiles now with -Wall -O -W -Wshadow -pedantic

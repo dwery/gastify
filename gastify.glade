@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE glade-interface SYSTEM "glade-2.0.dtd">
-<!--Generated with glade3 3.0.2 on Wed Oct  4 23:31:45 2006 by ich@kleiner
+<!--Generated with glade3 3.4.5 on Sun Sep 14 22:19:18 2008 
 	Version: 3.0.1
 	Date: Wed Oct  4 22:08:29 2006
 	User: ich
@@ -20,6 +20,7 @@
         <child>
           <widget class="GtkScrolledWindow" id="scrolledwindow1">
             <property name="visible">True</property>
+            <property name="can_focus">False</property>
             <property name="hscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
             <property name="vscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
             <child>
@@ -41,16 +42,18 @@
             <child>
               <widget class="GtkButton" id="button2">
                 <property name="visible">True</property>
-                <property name="label" translatable="no">gtk-clear</property>
+                <property name="label">gtk-clear</property>
                 <property name="use_stock">True</property>
+                <property name="response_id">0</property>
                 <signal name="clicked" handler="onClearHistory"/>
               </widget>
             </child>
             <child>
               <widget class="GtkButton" id="button1">
                 <property name="visible">True</property>
-                <property name="label" translatable="no">gtk-close</property>
+                <property name="label">gtk-close</property>
                 <property name="use_stock">True</property>
+                <property name="response_id">0</property>
                 <signal name="clicked" handler="gtk_widget_hide" object="window1"/>
               </widget>
               <packing>
@@ -70,7 +73,21 @@
   <widget class="GtkMenu" id="menu1">
     <property name="visible">True</property>
     <child>
-      <widget class="GtkImageMenuItem" id="menuitem1">
+      <widget class="GtkCheckMenuItem" id="notification-toggle">
+        <property name="visible">True</property>
+        <property name="tooltip" translatable="yes">show notifications</property>
+        <property name="label" translatable="yes">Show Notifications</property>
+        <property name="use_underline">True</property>
+        <property name="active">True</property>
+      </widget>
+    </child>
+    <child>
+      <widget class="GtkSeparatorMenuItem" id="separatormenuitem1">
+        <property name="visible">True</property>
+      </widget>
+    </child>
+    <child>
+      <widget class="GtkImageMenuItem" id="about">
         <property name="visible">True</property>
         <property name="label">gtk-about</property>
         <property name="use_underline">True</property>
@@ -79,7 +96,7 @@
       </widget>
     </child>
     <child>
-      <widget class="GtkImageMenuItem" id="menuitem2">
+      <widget class="GtkImageMenuItem" id="quit">
         <property name="visible">True</property>
         <property name="label">gtk-quit</property>
         <property name="use_underline">True</property>
