@@ -39,14 +39,16 @@ static gint port = 40000;
 static gboolean daemonize = FALSE;
 static gboolean version = FALSE;
 gint   popuptime = 10;
+gchar  *execcmd = NULL;
 
 static GOptionEntry entries[] = 
 {
 	{ "port", 'p', 0, G_OPTION_ARG_INT, &port, "listen on given port", "N" },
 	{ "time", 't', 0, G_OPTION_ARG_INT, &popuptime, "display popup given time", "SECONDS" },
 	{ "demonize", 'd', 0, G_OPTION_ARG_NONE, &daemonize, "forks in the background", NULL },
-	{ "version", 'V', 0, G_OPTION_ARG_NONE, &version, "print version info", NULL },
-	
+	{ "execute", 'e', 0, G_OPTION_ARG_STRING, &execcmd, "executes command on new call", "\"COMMAND TO EXECUTE\"" },
+	{ "version", 'V', 0, G_OPTION_ARG_NONE, &version, "print version info", NULL },	
+	{ NULL }
 };
 
 int main(int argc, char *argv[]) {
@@ -67,7 +69,7 @@ int main(int argc, char *argv[]) {
 
 	/* demonize or not */
 	if (daemonize) {				
-		pid_t   pid, sid;
+		pid_t pid, sid;
 		pid = fork();
 	
 		if (pid < 0) {

@@ -1,3 +1,8 @@
+2008-09-16  penschuck  <penschuck@gmail.com>
+
+    * added ability to execute a cmd when new call arrives (-e)
+    * fixed --help, but still throws warning at compile time :/
+
 2008-09-15  penschuck  <penschuck@gmail.com>
 
     * added ability to disable notifications in statusicon-menu
