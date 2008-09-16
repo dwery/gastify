@@ -67,7 +67,7 @@ gboolean watcher(GIOChannel *source, GIOCondition condition, gpointer user_data)
 /* set socket up to listen mode */
 void watchSocket(int port, GtkStatusIcon *icon) {
 
-  int sd, rc;
+	int sd, rc;
 	struct sockaddr_in servAddr;
 	GIOChannel *gchannel;
 
@@ -90,3 +90,4 @@ void watchSocket(int port, GtkStatusIcon *icon) {
 
 	printf(_("waiting for data on port UDP %i\n"), port);
 }
+

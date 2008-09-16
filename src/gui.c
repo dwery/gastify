@@ -31,7 +31,7 @@
 #include "socket.h"
 #include "gui.h"
 
-#define VERSION "1.2.2"
+#define VERSION "1.2.3"
 #define APPNAME "gastify"
 
 static GtkWidget *menu;
@@ -54,14 +54,13 @@ GtkStatusIcon* initializeGui() {
 	/* load menu */
 	xml = glade_xml_new("/usr/share/gastify/gastify.glade", "menu1", "gastify");
 	glade_xml_signal_autoconnect(xml);
-	menu = glade_xml_get_widget(xml, "menu1");
 
+	menu = glade_xml_get_widget(xml, "menu1");
 	toggle = glade_xml_get_widget(xml, "notification-toggle");
+	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(toggle), TRUE);
 	gtk_status_icon_position_menu((GtkMenu*)menu, &x, &y, &push_in, icon);
-	g_signal_connect(historyDialog, "delete-event", GTK_SIGNAL_FUNC(gtk_widget_hide_on_delete), NULL);
 	g_signal_connect(icon, "popup-menu", GTK_SIGNAL_FUNC(activateMenu), NULL);
 	g_signal_connect(icon, "activate", GTK_SIGNAL_FUNC(onShowHistory), icon);
-	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(toggle), TRUE);
 
 	/* load history-window */
 	xml = glade_xml_new("/usr/share/gastify/gastify.glade", "window1", "gastify");
@@ -70,6 +69,7 @@ GtkStatusIcon* initializeGui() {
 	historyDialog = glade_xml_get_widget(xml, "window1");
 	textView = glade_xml_get_widget(xml, "textview1");
 	buffer = gtk_text_buffer_new(NULL);
+	g_signal_connect(historyDialog, "delete-event", GTK_SIGNAL_FUNC(gtk_widget_hide_on_delete), NULL);
 
 	return icon;
 }
@@ -78,6 +78,7 @@ GtkStatusIcon* initializeGui() {
 void notifyPopup(gchar *notifyMessage, GtkStatusIcon *icon) {
 	
 	NotifyNotification *notify;
+	gchar *cmdoutput = NULL; 
 	
 	notify_init("gastify");
 	notify = notify_notification_new("gastify", notifyMessage, NULL, NULL);
@@ -85,9 +86,12 @@ void notifyPopup(gchar *notifyMessage, GtkStatusIcon *icon) {
 	notify_notification_attach_to_status_icon(notify, icon);
 	
 	if ( gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(toggle))) {
-
 		notify_notification_show(notify, NULL);
-		
+	}
+	
+	if ( execcmd ) {
+		g_spawn_command_line_sync(execcmd, &cmdoutput, NULL, NULL, NULL);
+		g_free(cmdoutput);
 	}
 	
 	gtk_status_icon_set_from_icon_name(icon, "gastify_new_call");
@@ -123,7 +127,6 @@ void activateMenu() {
 
 }
 
-
 /* show about */
 void onShowAbout() {
 
@@ -143,7 +146,7 @@ void onShowAbout() {
 							"version", VERSION,
 							"license", license,
 							"wrap-license", TRUE,
-							"copyright", "\xc2\xa9 2006-2007 Jan Penschuck",
+							"copyright", "\xc2\xa9 2006-2008 Jan Penschuck",
 							"comments", _("a client for app-notify"),
 							"logo-icon-name", "gastify",
 							"website", "http://code.google.com/p/gastify/",
@@ -159,6 +162,7 @@ void onShowAbout() {
 void onShowHistory(gpointer *data) {
 
 	gtk_status_icon_set_from_icon_name(GTK_STATUS_ICON(data), "gastify");
+	
 	if ( !GTK_WIDGET_VISIBLE(historyDialog) ) {
 		gtk_widget_show(historyDialog);
 	} else {
