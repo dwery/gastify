@@ -12,7 +12,7 @@ msgstr ""
 "X-Poedit-Country: GERMANY\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-msgid "gastify call notification"
+msgid "Gastify Call Notification"
 msgstr "Gastify Anruf Benachrichtigung"
 
 msgid "a client for app-notify"
@@ -37,7 +37,7 @@ msgstr "kann nicht an Port %d binden\n"
 msgid "waiting for data on port UDP %i\n"
 msgstr "warte auf Daten an Port UDP  %i\n"
 
-msgid "call history"
+msgid "Call History"
 msgstr "Anrufprotokoll"
 
 msgid "listen on given port"
@@ -55,3 +55,8 @@ msgstr "im Hintergrund starten"
 msgid "print version info"
 msgstr "zeige Versionshinweise"
 
+msgid "executes command on new call"
+msgstr "führt bei Eintreffen eines Anrufs einen Befehl aus"
+
+msgid "Show Notifications"
+msgstr "Benachrichtigungen anzeigen"

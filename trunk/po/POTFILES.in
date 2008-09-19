@@ -2,4 +2,4 @@
 src/main.c
 src/socket.c
 src/gui.c
-gastify.glade.h
+#gastify.glade.h

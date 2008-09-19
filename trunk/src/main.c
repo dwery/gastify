@@ -95,13 +95,13 @@ int main(int argc, char *argv[]) {
 	gtk_init(&argc, &argv);
 	
 	/* gettext */
-  	setlocale (LC_ALL, "");
+  	setlocale(LC_ALL, "");
   	bindtextdomain("gastify", "/usr/share/locale");
 	textdomain("gastify");
 	
 	/* open socket and initialize statusicon */
 	watchSocket(port, initializeGui());
-	gtk_main ();
+	gtk_main();
 	
 	return 0;
 }

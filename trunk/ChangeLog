@@ -1,3 +1,8 @@
+2008-09-19  penschuck  <penschuck@gmail.com>
+
+    * translation updates
+    * added script that generates a deb and a rpm: checkinstall.sh
+
 2008-09-16  penschuck  <penschuck@gmail.com>
 
     * added ability to execute a cmd when new call arrives (-e)

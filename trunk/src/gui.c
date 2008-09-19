@@ -49,7 +49,7 @@ GtkStatusIcon* initializeGui() {
 	gboolean push_in;
 	
 	icon = gtk_status_icon_new_from_icon_name("gastify");
-	gtk_status_icon_set_tooltip(icon, _("gastify call notification"));
+	gtk_status_icon_set_tooltip(icon, _("Gastify Call Notification"));
 
 	/* load menu */
 	xml = glade_xml_new("/usr/share/gastify/gastify.glade", "menu1", "gastify");
@@ -131,14 +131,14 @@ void activateMenu() {
 void onShowAbout() {
 
 	gchar *license = g_strconcat("\nGastify is free software; you can redistribute it and/or modify it under", 
-															"the terms of the GNU General Public License as published by the Free Software Foundation",
-															"either version 2 of the License, or (at your option) any later version.\n\r",
-							 								"Gastify is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; ",
-							 								"without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. ",
-							 								"See the GNU General Public License for more details.\n\r You should have received a copy ",
-							 								"of the GNU General Public License along with Gastify; if not, write to the ",
-							 								"Free Software Foundation, Inc.,59 Temple Place, Suite 330, Boston, MA  02111-1307  USA",
-															NULL);
+					"the terms of the GNU General Public License as published by the Free Software Foundation",
+					"either version 2 of the License, or (at your option) any later version.\n\r",
+					"Gastify is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; ",
+					"without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. ",
+					"See the GNU General Public License for more details.\n\r You should have received a copy ",
+					"of the GNU General Public License along with Gastify; if not, write to the ",
+					"Free Software Foundation, Inc.,59 Temple Place, Suite 330, Boston, MA  02111-1307  USA\n",
+					NULL);
 	
 	static const char *authors[] = {"Jan Penschuck","penschuck@gmail.com", NULL};
 	gtk_show_about_dialog(NULL,

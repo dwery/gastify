@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE glade-interface SYSTEM "glade-2.0.dtd">
-<!--Generated with glade3 3.4.5 on Sun Sep 14 22:19:18 2008 
+<!--Generated with glade3 3.4.5 on Fri Sep 19 06:17:41 2008 
 	Version: 3.0.1
 	Date: Wed Oct  4 22:08:29 2006
 	User: ich
@@ -10,7 +10,7 @@
   <widget class="GtkWindow" id="window1">
     <property name="width_request">400</property>
     <property name="height_request">200</property>
-    <property name="title" translatable="yes">call history</property>
+    <property name="title" translatable="yes">Call History</property>
     <property name="window_position">GTK_WIN_POS_CENTER</property>
     <property name="icon_name">gastify</property>
     <property name="type_hint">GDK_WINDOW_TYPE_HINT_DIALOG</property>
@@ -75,7 +75,6 @@
     <child>
       <widget class="GtkCheckMenuItem" id="notification-toggle">
         <property name="visible">True</property>
-        <property name="tooltip" translatable="yes">show notifications</property>
         <property name="label" translatable="yes">Show Notifications</property>
         <property name="use_underline">True</property>
         <property name="active">True</property>
