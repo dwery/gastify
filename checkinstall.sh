@@ -13,6 +13,7 @@ VERSION=`fgrep "AM_INIT_AUTOMAKE" configure.in |gawk '{ print $2 }'`
 ./configure --prefix=/usr
 
 checkinstall -y -D \
+	--pkgname=gastify \
 	--pkgversion=$VERSION \
 	--pkglicense=GPL2 \
 	--arch=i386 \
@@ -29,6 +30,7 @@ checkinstall -y -D \
 	--delspec
 
 checkinstall -y -R \
+	--pkgname=gastify \
         --pkgversion=$VERSION \
         --pkglicense=GPL2 \
         --arch=i386 \
