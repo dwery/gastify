@@ -19,6 +19,7 @@
  *
  */
 
+#include <config.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -30,9 +31,6 @@
 #include <gtk/gtk.h>
 #include "socket.h"
 #include "gui.h"
-
-#define VERSION "1.2.3"
-#define APPNAME "gastify"
 	
 static gint port = 40000;
 static gboolean daemonize = FALSE;
@@ -45,7 +43,7 @@ static GOptionEntry entries[] =
 	{ "port", 'p', 0, G_OPTION_ARG_INT, &port, "listen on given port", "N" },
 	{ "time", 't', 0, G_OPTION_ARG_INT, &popuptime, "display popup given time", "SECONDS" },
 	{ "demonize", 'd', 0, G_OPTION_ARG_NONE, &daemonize, "forks in the background", NULL },
-	{ "execute", 'e', 0, G_OPTION_ARG_STRING, &execcmd, "executes command on new call", "\"COMMAND TO EXECUTE\"" },
+	{ "execute", 'e', 0, G_OPTION_ARG_STRING, &execcmd, "executes command on new call", "COMMAND TO EXECUTE" },
 	{ "version", 'V', 0, G_OPTION_ARG_NONE, &version, "print version info", NULL },	
 	{ NULL }
 };
@@ -56,13 +54,13 @@ int main(int argc, char *argv[]) {
 	GOptionContext *context;
 
 	context = g_option_context_new ("");
- 	g_option_context_add_main_entries(context, entries, "gastify");
+ 	g_option_context_add_main_entries(context, entries, PACKAGE);
 	g_option_context_add_group (context, gtk_get_option_group (TRUE));
 	g_option_context_parse (context, &argc, &argv, NULL);
 	
 	/* print version info */		
 	if (version) {
-		printf("%s %s\n", APPNAME, VERSION);
+		printf("%s %s\n", PACKAGE, VERSION);
 		exit(0);		
 	}
 
@@ -88,15 +86,15 @@ int main(int argc, char *argv[]) {
 	g_option_context_free(context);
 	
 	/* get up and running */
-	g_set_prgname("gastify");
-	gtk_window_set_default_icon_name("gastify");
+	g_set_prgname(PACKAGE);
+	gtk_window_set_default_icon_name(PACKAGE);
   	gtk_set_locale();
 	gtk_init(&argc, &argv);
 	
 	/* gettext */
   	setlocale(LC_ALL, "");
-  	bindtextdomain("gastify", "/usr/share/locale");
-	textdomain("gastify");
+  	bindtextdomain(GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR);
+	textdomain(GETTEXT_PACKAGE);
 	
 	/* open socket and initialize statusicon */
 	watchSocket(port, initializeGui());

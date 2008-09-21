@@ -1,6 +1,6 @@
 AC_INIT(configure.in)
-AM_INIT_AUTOMAKE(gastify, 1.2.3)
-AC_PREFIX_DEFAULT("/usr")
+AM_INIT_AUTOMAKE(gastify, 1.2.3 )
+AC_PREFIX_DEFAULT("/usr/local")
 AM_CONFIG_HEADER(config.h)
 
 CFLAGS=
@@ -20,6 +20,17 @@ ALL_LINGUAS="de"
 AM_GLIB_GNU_GETTEXT
 AC_DEFINE_UNQUOTED([GETTEXT_PACKAGE], ["${GETTEXT_PACKAGE}"], [gettext domain])
 AC_SUBST(GETTEXT_PACKAGE)
+
+if test "${prefix}" = "NONE"; then
+	prefix=${ac_default_prefix}
+fi
+
+DATADIRNAME=share
+AC_DEFINE_UNQUOTED([PACKAGE_LOCALE_DIR], ["${prefix}/${DATADIRNAME}/locale"],[Defines the place where locales can be found])
+AC_SUBST(PACKAGE_LOCALE_DIR)
+
+AC_DEFINE_UNQUOTED([PACKAGE_DATA_DIR], ["${prefix}/${DATADIRNAME}"],[Defines the place where data are found])
+AC_SUBST(PACKAGE_DATA_DIR)
 
 AC_SUBST(PACKAGE_CFLAGS)
 AC_SUBST(PACKAGE_LIBS)

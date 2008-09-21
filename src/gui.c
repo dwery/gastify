@@ -17,7 +17,8 @@
  * along with gastify.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-
+ 
+#include <config.h>
 #include <string.h>
 #include <glib.h>
 #include <glib/gi18n.h>
@@ -31,9 +32,6 @@
 #include "socket.h"
 #include "gui.h"
 
-#define VERSION "1.2.3"
-#define APPNAME "gastify"
-
 static GtkWidget *menu;
 static GtkWidget *historyDialog;
 static GtkWidget *textView;
@@ -45,6 +43,7 @@ GtkStatusIcon* initializeGui() {
 	/* initialize statusicon */
 	GtkStatusIcon *icon;
 	GladeXML *xml;
+	gchar *gladefile;
 	int x, y;
 	gboolean push_in;
 	
@@ -52,7 +51,9 @@ GtkStatusIcon* initializeGui() {
 	gtk_status_icon_set_tooltip(icon, _("Gastify Call Notification"));
 
 	/* load menu */
-	xml = glade_xml_new("/usr/share/gastify/gastify.glade", "menu1", "gastify");
+	gladefile = g_strconcat( PACKAGE_DATA_DIR, "/gastify/gastify.glade", NULL);
+	
+	xml = glade_xml_new(gladefile, "menu1", "gastify");
 	glade_xml_signal_autoconnect(xml);
 
 	menu = glade_xml_get_widget(xml, "menu1");
@@ -63,7 +64,7 @@ GtkStatusIcon* initializeGui() {
 	g_signal_connect(icon, "activate", GTK_SIGNAL_FUNC(onShowHistory), icon);
 
 	/* load history-window */
-	xml = glade_xml_new("/usr/share/gastify/gastify.glade", "window1", "gastify");
+	xml = glade_xml_new(gladefile, "window1", "gastify");
 	glade_xml_signal_autoconnect(xml);
 
 	historyDialog = glade_xml_get_widget(xml, "window1");
@@ -142,7 +143,7 @@ void onShowAbout() {
 	
 	static const char *authors[] = {"Jan Penschuck","penschuck@gmail.com", NULL};
 	gtk_show_about_dialog(NULL,
-							"name", APPNAME,
+							"name", PACKAGE,
 							"version", VERSION,
 							"license", license,
 							"wrap-license", TRUE,

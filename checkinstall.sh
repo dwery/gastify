@@ -7,7 +7,7 @@ then
         exit
 fi
 
-VERSION=`fgrep "#define VERSION" src/main.c |gawk '{ print $3 }'`
+VERSION=`fgrep "AM_INIT_AUTOMAKE" configure.in |gawk '{ print $2 }'`
 
 ## whoooOOOSH
 ./configure --prefix=/usr

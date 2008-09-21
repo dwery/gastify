@@ -1,3 +1,10 @@
+2008-09-21  penschuck  <penschuck@gmail.com>
+
+    * switched license to LGPL3
+    * fixed --prefix at configure time
+    * small change in checkinstall.sh
+    * bumb to automake-1.10
+
 2008-09-19  penschuck  <penschuck@gmail.com>
 
     * translation updates
