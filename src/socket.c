@@ -50,7 +50,7 @@ gboolean watcher(GIOChannel *source, GIOCondition condition, gpointer user_data)
 			cidname = strsep(&buffer, "|");
 			called = strsep(&buffer, "\0");
 			
-			notifyMessage = g_strconcat( _("call from: "), cidnum, ", ", cidname, "\n", NULL);
+			notifyMessage = g_strconcat( cidnum, ", ", cidname, "\n", NULL);
 			notifyPopup(notifyMessage, user_data);
 			addToHistory(notifyMessage);
 
