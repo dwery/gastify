@@ -14,7 +14,9 @@ CURRENT_DIR=`pwd`
 ## a .tar.gz
 make maintainer-clean
 cd ..
-tar --exclude=.svn -zcf gastify-$VERSION.tar.gz gastify/
+mv $CURRENT_DIR gastify-$VERSION
+tar --exclude=.svn --owner 0 -zcf gastify-$VERSION.tar.gz gastify-$VERSION
+mv gastify-$VERSION $CURRENT_DIR
 mv gastify-$VERSION.tar.gz $CURRENT_DIR
 cd $CURRENT_DIR
 
