@@ -13,13 +13,10 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 
 msgid "Gastify Call Notification"
-msgstr "Gastify Anruf Benachrichtigung"
+msgstr "Gastify Anruf-Benachrichtigung"
 
 msgid "a client for app-notify"
 msgstr "ein Client für app_notify"
-
-msgid "call from: "
-msgstr "Anruf von: "
 
 #, c-format
 msgid "this is not a gastify message. waiting...\n"
