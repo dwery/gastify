@@ -1,0 +1,38 @@
+AC_INIT(configure.in)
+AM_INIT_AUTOMAKE(gastify, 1.2.3 )
+AC_PREFIX_DEFAULT("/usr/local")
+AM_CONFIG_HEADER(config.h)
+
+CFLAGS=
+AC_SUBST(CFLAGS)
+AC_ISC_POSIX
+AC_PROG_CC
+AM_PROG_CC_STDC
+AC_HEADER_STDC
+
+PKG_CHECK_MODULES( GLIB, glib-2.0 >= 2.12.0 )
+PKG_CHECK_MODULES( GTK, gtk+-2.0 >= 2.10.0 )
+PKG_CHECK_MODULES( GLADE, libglade-2.0 >= 2.4.0 )
+PKG_CHECK_MODULES( LIBNOTIFY, libnotify >= 0.4.2 )
+
+GETTEXT_PACKAGE=gastify
+ALL_LINGUAS="de"
+AM_GLIB_GNU_GETTEXT
+AC_DEFINE_UNQUOTED([GETTEXT_PACKAGE], ["${GETTEXT_PACKAGE}"], [gettext domain])
+AC_SUBST(GETTEXT_PACKAGE)
+
+if test "${prefix}" = "NONE"; then
+	prefix=${ac_default_prefix}
+fi
+
+DATADIRNAME=share
+AC_DEFINE_UNQUOTED([PACKAGE_LOCALE_DIR], ["${prefix}/${DATADIRNAME}/locale"],[Defines the place where locales can be found])
+AC_SUBST(PACKAGE_LOCALE_DIR)
+
+AC_DEFINE_UNQUOTED([PACKAGE_DATA_DIR], ["${prefix}/${DATADIRNAME}"],[Defines the place where data are found])
+AC_SUBST(PACKAGE_DATA_DIR)
+
+AC_SUBST(PACKAGE_CFLAGS)
+AC_SUBST(PACKAGE_LIBS)
+AC_CONFIG_FILES([ Makefile src/Makefile po/Makefile.in pixmaps/Makefile ])
+AC_OUTPUT
