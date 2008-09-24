@@ -1,3 +1,4 @@
+#labels Featured
 == possible use with [http://www.freepbx.org/ freePBX] ==
 
   * add 999# to the extensionlist of a ringroup
