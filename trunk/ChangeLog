@@ -3,6 +3,7 @@
     * small change in log-format
     * moved checkinstall.sh buildpackages.sh
     * buildpackage.sh produces tarball too
+    * released v1.2.3
 
 2008-09-21  penschuck  <penschuck@gmail.com>
 
