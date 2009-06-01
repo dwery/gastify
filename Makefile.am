@@ -16,12 +16,12 @@ gastifydoc_DATA = \
   NEWS\
   TODO
 
-gladefilesdir = $(prefix)/share/gastify
+uifilesdir = $(prefix)/share/gastify
 
-gladefiles_DATA = \
-  gastify.glade
+uifiles_DATA = \
+  gastify.ui
 
 EXTRA_DIST = \
   $(gastifydoc_DATA)\
-  $(gladefiles_DATA)
+  $(uifiles_DATA)
 
