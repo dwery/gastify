@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<!--Generated with glade3 3.4.5 on Fri Sep 19 06:17:41 2008 
+	Version: 3.0.1
+	Date: Wed Oct  4 22:08:29 2006
+	User: ich
+	Host: kleiner
+-->
+<interface>
+  <object class="GtkUIManager" id="uimanager1">
+    <child>
+      <object class="GtkActionGroup" id="actiongroup1">
+        <child>
+          <object class="GtkToggleAction" id="notification-toggle">
+            <property name="active">True</property>
+            <property name="name">notification-toggle</property>
+            <property name="label" translatable="yes">Show Notifications</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkAction" id="about">
+            <property name="stock_id">gtk-about</property>
+            <property name="name">about</property>
+            <signal handler="onShowAbout" name="activate"/>
+          </object>
+        </child>
+        <child>
+          <object class="GtkAction" id="quit">
+            <property name="stock_id">gtk-quit</property>
+            <property name="name">quit</property>
+            <signal handler="gtk_main_quit" name="activate"/>
+          </object>
+        </child>
+      </object>
+    </child>
+    <ui>
+      <popup name="menu1">
+        <menuitem action="notification-toggle"/>
+        <separator/>
+        <menuitem action="about"/>
+        <menuitem action="quit"/>
+      </popup>
+    </ui>
+  </object>
+  <object class="GtkWindow" id="window1">
+    <property name="width_request">400</property>
+    <property name="height_request">200</property>
+    <property name="title" translatable="yes">Call History</property>
+    <property name="window_position">GTK_WIN_POS_CENTER</property>
+    <property name="icon_name">gastify</property>
+    <property name="type_hint">GDK_WINDOW_TYPE_HINT_DIALOG</property>
+    <child>
+      <object class="GtkVBox" id="vbox1">
+        <property name="visible">True</property>
+        <child>
+          <object class="GtkScrolledWindow" id="scrolledwindow1">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="hscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
+            <property name="vscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
+            <child>
+              <object class="GtkTextView" id="textview1">
+                <property name="visible">True</property>
+                <property name="border_width">10</property>
+                <property name="editable">False</property>
+                <property name="left_margin">2</property>
+                <property name="right_margin">2</property>
+                <property name="cursor_visible">False</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkHButtonBox" id="hbuttonbox1">
+            <property name="visible">True</property>
+            <property name="border_width">10</property>
+            <child>
+              <object class="GtkButton" id="button2">
+                <property name="visible">True</property>
+                <property name="label">gtk-clear</property>
+                <property name="use_stock">True</property>
+                <signal handler="onClearHistory" name="clicked"/>
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton" id="button1">
+                <property name="visible">True</property>
+                <property name="label">gtk-close</property>
+                <property name="use_stock">True</property>
+                <signal handler="gtk_widget_hide" name="clicked" object="window1"/>
+              </object>
+              <packing>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkMenu" constructor="uimanager1" id="menu1">
+    <property name="visible">True</property>
+  </object>
+</interface>

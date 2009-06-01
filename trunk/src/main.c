@@ -45,7 +45,8 @@ static GOptionEntry entries[] =
 	{ "demonize", 'd', 0, G_OPTION_ARG_NONE, &daemonize, "forks in the background", NULL },
 	{ "execute", 'e', 0, G_OPTION_ARG_STRING, &execcmd, "executes command on new call", "COMMAND TO EXECUTE" },
 	{ "version", 'V', 0, G_OPTION_ARG_NONE, &version, "print version info", NULL },	
-	{ NULL }
+	{NULL, 0, 0, 0, NULL, NULL, NULL}
+
 };
 
 int main(int argc, char *argv[]) {

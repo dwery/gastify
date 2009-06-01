@@ -1,3 +1,8 @@
+2009-01-06  penschuck  <penschuck@gmail.com>
+
+    * dropped glade dep in favor of GtkBuilder
+    * fixed wrong init of GOptionEntry
+
 2008-09-24  penschuck  <penschuck@gmail.com>
 
     * small change in log-format
