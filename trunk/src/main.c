@@ -35,8 +35,11 @@
 static gint port = 40000;
 static gboolean daemonize = FALSE;
 static gboolean version = FALSE;
-gint   popuptime = 10;
-gchar  *execcmd = NULL;
+
+gint  popuptime = 10;
+gchar *execcmd = NULL;
+gchar *callcmd = NULL;
+gboolean strip_leading = FALSE;
 
 static GOptionEntry entries[] = 
 {
@@ -44,20 +47,21 @@ static GOptionEntry entries[] =
 	{ "time", 't', 0, G_OPTION_ARG_INT, &popuptime, "display popup given time", "SECONDS" },
 	{ "demonize", 'd', 0, G_OPTION_ARG_NONE, &daemonize, "forks in the background", NULL },
 	{ "execute", 'e', 0, G_OPTION_ARG_STRING, &execcmd, "executes command on new call", "COMMAND TO EXECUTE" },
+	{ "call-cmd", 'c', 0, G_OPTION_ARG_STRING, &callcmd, "command to execute to initiate a call", "COMMAND" },
+	{ "strip-leading", 's', 0, G_OPTION_ARG_NONE, &strip_leading, "strip the leading digit on the received CID", NULL },
 	{ "version", 'V', 0, G_OPTION_ARG_NONE, &version, "print version info", NULL },	
-	{NULL, 0, 0, 0, NULL, NULL, NULL}
-
+	{ NULL, 0, 0, 0, NULL, NULL, NULL}
 };
 
-int main(int argc, char *argv[]) {
-	
+int main(int argc, char *argv[])
+{
 	/* commandline options */
 	GOptionContext *context;
 
-	context = g_option_context_new ("");
+	context = g_option_context_new("");
  	g_option_context_add_main_entries(context, entries, PACKAGE);
-	g_option_context_add_group (context, gtk_get_option_group (TRUE));
-	g_option_context_parse (context, &argc, &argv, NULL);
+	g_option_context_add_group(context, gtk_get_option_group(TRUE));
+	g_option_context_parse(context, &argc, &argv, NULL);
 	
 	/* print version info */		
 	if (version) {
