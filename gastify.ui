@@ -116,7 +116,7 @@
             <signal name="popup_menu" handler="on_treeview_popup_menu"/>
             <child>
               <object class="GtkTreeViewColumn" id="treeview-date">
-                <property name="title">Date</property>
+                <property name="title" translatable="yes">Date</property>
                 <child>
                   <object class="GtkCellRendererText" id="cellrenderertext1"/>
                   <attributes>
@@ -149,7 +149,7 @@
             </child>
             <child>
               <object class="GtkTreeViewColumn" id="treeview-name">
-                <property name="title">Name</property>
+                <property name="title" translatable="yes">Name</property>
                 <child>
                   <object class="GtkCellRendererText" id="cellrenderertext4"/>
                   <attributes>
@@ -256,7 +256,7 @@
     <property name="visible">True</property>
     <child>
       <object class="GtkImageMenuItem" id="menu_copy_num">
-        <property name="label">Copy CID to clipboard</property>
+        <property name="label" translatable="yes">Copy CID to clipboard</property>
         <property name="visible">True</property>
         <property name="image">image2</property>
         <property name="use_stock">False</property>
@@ -266,7 +266,7 @@
     </child>
     <child>
       <object class="GtkImageMenuItem" id="menu_copy_name">
-        <property name="label">Copy Name to clipboard</property>
+        <property name="label" translatable="yes">Copy Name to clipboard</property>
         <property name="visible">True</property>
         <property name="image">image3</property>
         <property name="use_stock">False</property>
@@ -281,7 +281,7 @@
     </child>
     <child>
       <object class="GtkImageMenuItem" id="menu_lookup_gsearch">
-        <property name="label">Lookup CID on Google Search</property>
+        <property name="label" translatable="yes">Lookup CID on Google Search</property>
         <property name="visible">True</property>
         <property name="image">image4</property>
         <property name="use_stock">False</property>
@@ -291,7 +291,7 @@
     </child>
     <child>
       <object class="GtkImageMenuItem" id="menu_lookup_gphone">
-        <property name="label">Lookup CID on Google Phonebook</property>
+        <property name="label" translatable="yes">Lookup CID on Google Phonebook</property>
         <property name="visible">True</property>
         <property name="image">image5</property>
         <property name="use_stock">False</property>
