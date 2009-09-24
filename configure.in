@@ -1,5 +1,5 @@
 AC_INIT(configure.in)
-AM_INIT_AUTOMAKE(gastify, 1.2.4 )
+AM_INIT_AUTOMAKE(gastify, 1.3.0 )
 AC_PREFIX_DEFAULT("/usr/local")
 AM_CONFIG_HEADER(config.h)
 
