@@ -16,13 +16,13 @@ msgstr	"Project-Id-Version: gastify 1.2.1\n"
 	"Content-Transfer-Encoding: 8bit\n"
 
 msgid	"gastify call notification"
-msgstr	""
+msgstr	"Gastify Notifica Chiamate"
 
 msgid	"a client for app-notify"
-msgstr	""
+msgstr	"un client per app-notify"
 
 msgid	"call from: "
-msgstr	""
+msgstr	"chiamata da: "
 
 #, c-format
 msgid	"this is not a gastify message. waiting...\n"
@@ -30,49 +30,49 @@ msgstr	""
 
 #, c-format
 msgid	"cannot open socket\n"
-msgstr	""
+msgstr	"non riesco ad aprire il socket"
 
 #, c-format
 msgid	"cannot bind port %d\n"
-msgstr	""
+msgstr	"non riesco a fare bind sulla porta"
 
 #, c-format
 msgid	"waiting for data on port UDP %i\n"
-msgstr	""
+msgstr	"in attesa di dati sulla porta UDP %i\n"
 
 msgid	"Call history"
-msgstr	""
+msgstr	"Elenco chiamate"
 
 msgid "listen on given port"
-msgstr ""
+msgstr "ascolta sulla porta indicata"
 
 msgid "display popup given time"
-msgstr ""
+msgstr "tempo di permanenza del popup"
 
 msgid "SECONDS"
-msgstr ""
+msgstr "SECONDI"
 
 msgid "forks in the background"
-msgstr ""
+msgstr "esegui in background"
 
 msgid "Call:"
-msgstr ""
+msgstr "Chiama:"
 
 msgid "Date"
-msgstr "Datum"
-
+msgstr "Data"
+fatt
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 msgid "Copy CID to clipboard"
-msgstr ""
+msgstr "Copia il CID nella clipboard"
 
 msgid "Copy Name to clipboard"
-msgstr ""
+msgstr "Copia il nome nella clipboard"
 
 msgid "Lookup CID on Google Search"
-msgstr ""
+msgstr "Cerca il CID su Google Search"
 
 msgid "print version info"
-msgstr ""
+msgstr "informazioni sulla versione"
 
