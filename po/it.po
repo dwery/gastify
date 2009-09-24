@@ -1,0 +1,78 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid	""
+msgstr	"Project-Id-Version: gastify 1.2.1\n"
+	"Report-Msgid-Bugs-To: \n"
+	"POT-Creation-Date: 2007-06-28 19:46+0200\n"
+	"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+	"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+	"Language-Team: LANGUAGE <LL@li.org>\n"
+	"MIME-Version: 1.0\n"
+	"Content-Type: text/plain; charset=CHARSET\n"
+	"Content-Transfer-Encoding: 8bit\n"
+
+msgid	"gastify call notification"
+msgstr	""
+
+msgid	"a client for app-notify"
+msgstr	""
+
+msgid	"call from: "
+msgstr	""
+
+#, c-format
+msgid	"this is not a gastify message. waiting...\n"
+msgstr	""
+
+#, c-format
+msgid	"cannot open socket\n"
+msgstr	""
+
+#, c-format
+msgid	"cannot bind port %d\n"
+msgstr	""
+
+#, c-format
+msgid	"waiting for data on port UDP %i\n"
+msgstr	""
+
+msgid	"Call history"
+msgstr	""
+
+msgid "listen on given port"
+msgstr ""
+
+msgid "display popup given time"
+msgstr ""
+
+msgid "SECONDS"
+msgstr ""
+
+msgid "forks in the background"
+msgstr ""
+
+msgid "Call:"
+msgstr ""
+
+msgid "Date"
+msgstr "Datum"
+
+msgid "Name"
+msgstr ""
+
+msgid "Copy CID to clipboard"
+msgstr ""
+
+msgid "Copy Name to clipboard"
+msgstr ""
+
+msgid "Lookup CID on Google Search"
+msgstr ""
+
+msgid "print version info"
+msgstr ""
+
