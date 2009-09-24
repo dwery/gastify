@@ -7,7 +7,7 @@ then
         exit
 fi
 
-VERSION=`fgrep "AM_INIT_AUTOMAKE" configure.in |gawk '{ print $2 }'`
+VERSION=`fgrep "AM_INIT_AUTOMAKE" configure.in |awk '{ print $2 }'`
 CURRENT_DIR=`pwd`
 
 ## whoooOOOSH

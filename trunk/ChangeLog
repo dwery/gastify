@@ -1,3 +1,20 @@
+2009-09-24 penschuck  <penschuck@gmail.com>
+
+	* fixed glade translation markups
+	* fixed de translation
+
+2009-09-23 azummo <azummo-google@towertech.it>
+
+	* added better pixmaps	
+
+2009-09-22 azummo <azummo-google@towertech.it>
+
+	* the cid list is now a tree view with
+	* copy to clipboard and google search options.
+	* added --call-cmd, --strip-leading
+	* the call command is triggered by a double click on the
+	* treeview or by the quick call text entry field.
+
 2009-01-06  penschuck  <penschuck@gmail.com>
 
     * dropped glade dep in favor of GtkBuilder

@@ -34,7 +34,7 @@ msgstr "kann nicht an Port %d binden\n"
 msgid "waiting for data on port UDP %i\n"
 msgstr "warte auf Daten an Port UDP  %i\n"
 
-msgid "Call History"
+msgid "Call history"
 msgstr "Anrufprotokoll"
 
 msgid "listen on given port"
@@ -49,11 +49,32 @@ msgstr "SEKUNDEN"
 msgid "forks in the background"
 msgstr "im Hintergrund starten"
 
+msgid "Call:"
+msgstr "Anruf:"
+
+msgid "Date"
+msgstr "Datum"
+
+msgid "Name"
+msgstr "Name"
+
+msgid "Copy CID to clipboard"
+msgstr "Kopiere CID in die Zwischenablage"
+
+msgid "Copy Name to clipboard"
+msgstr "Kopiere Name in die Zwischenablage"
+
+msgid "Lookup CID on Google Search"
+msgstr "CID in Google Suche nachschlagen"
+
+msgid "Lookup CID on Google Phonebook"
+msgstr "CID in Google Phonebook nachschlagen"
+
 msgid "print version info"
 msgstr "zeige Versionshinweise"
 
 msgid "executes command on new call"
 msgstr "führt bei Eintreffen eines Anrufs einen Befehl aus"
 
-msgid "Show Notifications"
+msgid "Show notifications"
 msgstr "Benachrichtigungen anzeigen"

@@ -40,7 +40,7 @@ msgstr	""
 msgid	"waiting for data on port UDP %i\n"
 msgstr	""
 
-msgid	"call history"
+msgid	"Call history"
 msgstr	""
 
 msgid "listen on given port"
@@ -53,6 +53,24 @@ msgid "SECONDS"
 msgstr ""
 
 msgid "forks in the background"
+msgstr ""
+
+msgid "Call:"
+msgstr ""
+
+msgid "Date"
+msgstr "Datum"
+
+msgid "Name"
+msgstr ""
+
+msgid "Copy CID to clipboard"
+msgstr ""
+
+msgid "Copy Name to clipboard"
+msgstr ""
+
+msgid "Lookup CID on Google Search"
 msgstr ""
 
 msgid "print version info"
