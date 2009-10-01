@@ -1,4 +1,4 @@
-#An Example for the usage of the --call-cmd switch
+= An Example for the usage of the --call-cmd switch =
 
 Add your content here.
 
