@@ -1,5 +1,8 @@
 = An Example for the usage of the --call-cmd switch =
 
+[http://code.google.com/p/gastify/source/browse/trunk/extras/callscript.php Here] is a script which has to be installed on a webserver.
+Fill out the variables on top of the script and use it like this:
+{{{ curl http://webserver/path/to/callscript.php?number= }}}
 Add your content here.
 
 = Details =
