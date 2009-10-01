@@ -2,12 +2,5 @@
 
 [http://code.google.com/p/gastify/source/browse/trunk/extras/callscript.php Here] is a script which has to be installed on a webserver.
 Fill out the variables on top of the script and use it like this:
-{{{ curl http://webserver/path/to/callscript.php?number= }}}
-Add your content here.
 
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+{{{ gastify -dc "curl http://webserver/path/to/callscript.php?number=" }}}
