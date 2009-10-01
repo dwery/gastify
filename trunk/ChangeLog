@@ -3,6 +3,8 @@
         * reworked gettext files
         * fixed --help translation
 	* some fixes in gui.c
+	* added extras folder
+	* added php script to call a number using asterisk manager
 
 2009-09-27  gettextize  <bug-gnu-gettext@gnu.org>
 
