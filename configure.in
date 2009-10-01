@@ -1,13 +1,21 @@
-AC_INIT(configure.in)
+AC_INIT
+AC_CONFIG_SRCDIR([configure.in])
 AM_INIT_AUTOMAKE(gastify, 1.3.0 )
 AC_PREFIX_DEFAULT("/usr/local")
-AM_CONFIG_HEADER(config.h)
+AC_CONFIG_HEADERS([config.h])
 
 CFLAGS=
 AC_SUBST(CFLAGS)
-AC_ISC_POSIX
+AC_SEARCH_LIBS([strerror],[cposix])
 AC_PROG_CC
-AM_PROG_CC_STDC
+AC_PROG_CC
+AC_DIAGNOSE([obsolete],[AM_PROG_CC_STDC:
+	your code should no longer depend upon `am_cv_prog_cc_stdc', but upon
+	`ac_cv_prog_cc_stdc'.  Remove this warning and the assignment when
+	you adjust the code.  You can also remove the above call to
+	AC_PROG_CC if you already called it elsewhere.])
+am_cv_prog_cc_stdc=$ac_cv_prog_cc_stdc
+
 AC_HEADER_STDC
 
 PKG_CHECK_MODULES( GLIB, glib-2.0 >= 2.12.0 )
@@ -15,7 +23,7 @@ PKG_CHECK_MODULES( GTK, gtk+-2.0 >= 2.12.0 )
 PKG_CHECK_MODULES( LIBNOTIFY, libnotify >= 0.4.2 )
 
 GETTEXT_PACKAGE=gastify
-ALL_LINGUAS="de"
+ALL_LINGUAS="de it"
 AM_GLIB_GNU_GETTEXT
 AC_DEFINE_UNQUOTED([GETTEXT_PACKAGE], ["${GETTEXT_PACKAGE}"], [gettext domain])
 AC_SUBST(GETTEXT_PACKAGE)
