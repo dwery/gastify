@@ -318,7 +318,7 @@
   <object class="GtkStatusIcon" id="icon">
     <property name="icon_name">gastify</property>
     <property name="has_tooltip">True</property>
-    <property name="tooltip_text">Gastify Call Notification</property>
+    <property name="tooltip_text" translatable="yes">Gastify Call Notification</property>
     <signal name="activate" handler="on_icon_activate" object="window1"/>
     <signal name="popup_menu" handler="on_icon_popup_menu" object="menu1"/>
   </object>

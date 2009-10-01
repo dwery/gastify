@@ -98,12 +98,14 @@ void onShowAbout(void)
 
 /* show history */
 void on_icon_activate(void)
-{
-	gtk_status_icon_set_from_icon_name(statusIcon, "gastify");
+{	
+	gchar *iconfile;
 	
 	if (!GTK_WIDGET_VISIBLE(historyDialog)) {
 		gtk_widget_show(GTK_WIDGET(historyDialog));
 		gtk_window_deiconify(historyDialog);
+		iconfile = g_strconcat(PACKAGE_DATA_DIR, "/icons/hicolor/48x48/apps/gastify.png", NULL);
+		gtk_status_icon_set_from_file(GTK_STATUS_ICON(statusIcon), iconfile);
 	} else {
 		gtk_widget_hide(GTK_WIDGET(historyDialog));
 	}
@@ -113,6 +115,7 @@ GtkStatusIcon * initializeGui(void)
 {
 	GtkBuilder *builder;
 	gchar *uifile;
+	gchar *iconfile;	
 	int x, y;
 	gboolean push_in;
 
@@ -123,6 +126,8 @@ GtkStatusIcon * initializeGui(void)
 
 	/* intialize statusIcon */	
 	statusIcon = (GtkStatusIcon *) gtk_builder_get_object(builder, "icon");
+	iconfile = g_strconcat(PACKAGE_DATA_DIR, "/icons/hicolor/48x48/apps/gastify.png", NULL);
+	gtk_status_icon_set_from_file(statusIcon, iconfile);	
 
 	/* load menus */
 	menu = (GtkMenu *) gtk_builder_get_object(builder, "menu1");
@@ -161,12 +166,14 @@ GtkStatusIcon * initializeGui(void)
 static void on_notify_close(NotifyNotification *notification, gpointer user_data)
 {
 	gint reason = notify_notification_get_closed_reason(notification);
+	gchar *iconfile;
 
 	/* We get NOTIFYD_CLOSED_EXPIRED if the user clicks on the X */
 	if (0 && reason == 2) { /* NOTIFYD_CLOSED_USER */
-		/* reset status icon */
-		gtk_status_icon_set_from_icon_name(GTK_STATUS_ICON(user_data),
-			"gastify");
+		/* reset status icon */ 
+		iconfile = g_strconcat(PACKAGE_DATA_DIR, "/icons/hicolor/48x48/apps/gastify.png", NULL);
+		gtk_status_icon_set_from_file(GTK_STATUS_ICON(user_data), iconfile);
+
 	}
 
 	g_object_unref(G_OBJECT(notification));
@@ -176,8 +183,10 @@ static void on_notify_close(NotifyNotification *notification, gpointer user_data
 static void notifyPopup(gchar *title, gchar *message, GtkStatusIcon *icon)
 {
 	NotifyNotification *notify;
+	gchar *iconfile;
 
-	gtk_status_icon_set_from_icon_name(icon, "gastify_new_call");
+	iconfile = g_strconcat(PACKAGE_DATA_DIR, "/icons/hicolor/48x48/apps/gastify_new_call.png", NULL);
+	gtk_status_icon_set_from_file(icon, iconfile);
 	
 	if (gtk_check_menu_item_get_active(toggle)) {
 
@@ -241,7 +250,7 @@ void addToHistory(gchar *cid, gchar *extension, gchar *name)
 		gtk_tree_model_get_path(gtk_tree_view_get_model(treeView), &iter),
 		NULL, FALSE, 0, 0);
 
-	message = g_strconcat(timestamp, " - ", cid, "\n", " for ", extension, "\n", NULL);
+	message = g_strconcat(timestamp, " - ", cid, "\n", _(" for "), extension, "\n", NULL);
 	   
 	notifyPopup(name, message, statusIcon);
 

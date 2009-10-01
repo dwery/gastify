@@ -43,29 +43,36 @@ gboolean strip_leading = FALSE;
 
 static GOptionEntry entries[] = 
 {
-	{ "port", 'p', 0, G_OPTION_ARG_INT, &port, "listen on given port", "N" },
-	{ "time", 't', 0, G_OPTION_ARG_INT, &popuptime, "display popup given time", "SECONDS" },
-	{ "demonize", 'd', 0, G_OPTION_ARG_NONE, &daemonize, "forks in the background", NULL },
-	{ "execute", 'e', 0, G_OPTION_ARG_STRING, &execcmd, "executes command on new call", "COMMAND TO EXECUTE" },
-	{ "call-cmd", 'c', 0, G_OPTION_ARG_STRING, &callcmd, "command to execute to initiate a call", "COMMAND" },
-	{ "strip-leading", 's', 0, G_OPTION_ARG_NONE, &strip_leading, "strip the leading digit on the received CID", NULL },
-	{ "version", 'V', 0, G_OPTION_ARG_NONE, &version, "print version info", NULL },	
-	{ NULL, 0, 0, 0, NULL, NULL, NULL}
+	{ "port", 'p', 0, G_OPTION_ARG_INT, &port, "Listen on given port", "N" },
+	{ "time", 't', 0, G_OPTION_ARG_INT, &popuptime, "Display popup given time", "SECONDS" },
+	{ "demonize", 'd', 0, G_OPTION_ARG_NONE, &daemonize, "Forks in the background", NULL },
+	{ "execute", 'e', 0, G_OPTION_ARG_STRING, &execcmd, "Executes command on new call", "COMMAND TO EXECUTE" },
+	{ "call-cmd", 'c', 0, G_OPTION_ARG_STRING, &callcmd, "Command to execute to initiate a call", "COMMAND" },
+	{ "strip-leading", 's', 0, G_OPTION_ARG_NONE, &strip_leading, "Strip the leading digit on the received CID", NULL },
+	{ "version", 'V', 0, G_OPTION_ARG_NONE, &version, "Print version info", NULL },	
+	{ NULL, 0, 0, 0, NULL, NULL, NULL }
 };
 
 int main(int argc, char *argv[])
-{
-	/* commandline options */
+{	
 	GOptionContext *context;
-
-	context = g_option_context_new("");
- 	g_option_context_add_main_entries(context, entries, PACKAGE);
+	
+	/* gettext */
+  	setlocale(LC_ALL, "");
+  	bindtextdomain(GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR);
+	textdomain(GETTEXT_PACKAGE);
+	
+	/* commandline options */
+	context = g_option_context_new("- Gastify Call Notification");
+	g_option_context_set_translation_domain(context, GETTEXT_PACKAGE);	
+ 	g_option_context_add_main_entries(context, entries, GETTEXT_PACKAGE);
 	g_option_context_add_group(context, gtk_get_option_group(TRUE));
 	g_option_context_parse(context, &argc, &argv, NULL);
 	
+	
 	/* print version info */		
 	if (version) {
-		printf("%s %s\n", PACKAGE, VERSION);
+		printf("%s %s\n", "Version", VERSION);
 		exit(0);		
 	}
 
@@ -95,11 +102,6 @@ int main(int argc, char *argv[])
 	gtk_window_set_default_icon_name(PACKAGE);
   	gtk_set_locale();
 	gtk_init(&argc, &argv);
-	
-	/* gettext */
-  	setlocale(LC_ALL, "");
-  	bindtextdomain(GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR);
-	textdomain(GETTEXT_PACKAGE);
 	
 	/* open socket and initialize statusicon */
 	watchSocket(port, initializeGui());

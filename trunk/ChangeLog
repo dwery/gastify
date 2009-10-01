@@ -1,5 +1,22 @@
 2009-09-24 penschuck  <penschuck@gmail.com>
 
+        * reworked gettext files
+        * fixed --help translation
+	* some fixes in gui.c
+
+2009-09-27  gettextize  <bug-gnu-gettext@gnu.org>
+
+	* m4/gettext.m4: New file, from gettext-0.17.
+	* m4/iconv.m4: New file, from gettext-0.17.
+	* m4/lib-ld.m4: New file, from gettext-0.17.
+	* m4/lib-link.m4: New file, from gettext-0.17.
+	* m4/lib-prefix.m4: New file, from gettext-0.17.
+	* m4/nls.m4: New file, from gettext-0.17.
+	* m4/po.m4: New file, from gettext-0.17.
+	* m4/progtest.m4: New file, from gettext-0.17.
+
+2009-09-24 penschuck  <penschuck@gmail.com>
+
 	* fixed glade translation markups
 	* fixed de translation
 
