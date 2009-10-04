@@ -23,7 +23,7 @@ msgid "Call history"
 msgstr "Elenco chiamate"
 
 msgid "Show notifications"
-msgstr ""
+msgstr "Mostra le notifiche"
 
 msgid "Call:"
 msgstr "Chiama:"
@@ -51,8 +51,9 @@ msgid " for "
 msgstr " da "
 
 #, c-format
+# ho una tastiera americana... ;)
 msgid "this is not a gastify message. waiting...\n"
-msgstr ""
+msgstr "messaggio nel formato errato, in attesa...\n"
 
 #, c-format
 msgid "cannot open socket\n"
@@ -79,20 +80,20 @@ msgid "Forks in the background"
 msgstr "Esegui in background"
 
 msgid "Executes command on new call"
-msgstr ""
+msgstr "Esegui il comando alla ricezione di una chiamata"
 
 msgid "Command to execute to initiate a call"
-msgstr ""
+msgstr "Comando per iniziare una chiamata"
 
 msgid "Strip the leading digit on the received CID"
-msgstr ""
+msgstr "Rimuovi la prima cifra del CID ricevuto"
 
 msgid "SECONDS"
 msgstr "SECONDI"
 
 msgid "COMMAND"
-msgstr ""
+msgstr "COMANDO"
 
 msgid "COMMAND TO EXECUTE"
-msgstr ""
+msgstr "COMANDO DA ESEGUIRE"
 
