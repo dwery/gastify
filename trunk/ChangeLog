@@ -1,3 +1,7 @@
+2009-10-06 penschuck  <penschuck@gmail.com>
+
+	* removed callscript.php and added a bash script to place a call
+
 2009-09-24 penschuck  <penschuck@gmail.com>
 
         * reworked gettext files
