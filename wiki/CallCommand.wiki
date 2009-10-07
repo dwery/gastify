@@ -1,6 +1,7 @@
 = An Example for the usage of the --call-cmd switch =
 
-[http://code.google.com/p/gastify/source/browse/trunk/extras/callscript.php Here] is a script which has to be installed on a webserver.
+[http://code.google.com/p/gastify/source/browse/trunk/extras/placecall.sh Here] is a bash script which uses the asterisk manager to make a call.
+Add a user with the permissions to make calls in the manager.conf from asterisk.
 Fill out the variables on top of the script and use it like this:
 
-{{{ gastify -dc "curl http://webserver/path/to/callscript.php?number=" }}}
+{{{ gastify -dc /usr/local/bin/placecall.sh }}}
