@@ -1,8 +1,9 @@
 = An Example for the usage of the --call-cmd switch =
 
 [http://code.google.com/p/gastify/source/browse/trunk/extras/placecall.sh Here] is a bash script which uses the asterisk manager to make a call.
-Add a user with the permissions to make calls in the manager.conf from asterisk.
+Add a user with the permissions to make calls in the manager.conf.
 {{{
+; a asterisk 1.6x example
 [caller]
 secret = secret
 deny=0.0.0.0/0.0.0.0
