@@ -86,10 +86,10 @@ void onShowAbout(void)
 		"license", license,
 		"wrap-license", TRUE,
 		"copyright", "\xc2\xa9 2006-2009 Jan Penschuck",
-		"comments", _("a client for app-notify"),
+		"comments", _("a client for app_notify"),
 		"logo-icon-name", "gastify",
 		"website", "http://code.google.com/p/gastify/",
-		"website-label", "gastify website",
+		"website-label", "Gastify Website",
 		"authors", authors,
 		NULL);
 					
