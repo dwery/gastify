@@ -1,3 +1,9 @@
+2009-10-09 penschuck  <penschuck@gmail.com>
+
+	* small changes in gastify ui to hide callbar until -c is given
+	* some callbar ui rework
+	* bump to autotools 1.11
+
 2009-10-06 penschuck  <penschuck@gmail.com>
 
 	* removed callscript.php and added a bash script to place a call

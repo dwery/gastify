@@ -57,6 +57,6 @@ checkinstall -y -R \
         --fstrans \
         --deldesc \
         --deldoc \
-        --delspec  
+        --delspec
 
 make maintainer-clean
