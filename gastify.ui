@@ -16,7 +16,7 @@
   </object>
   <object class="GtkWindow" id="window1">
     <property name="width_request">480</property>
-    <property name="height_request">380</property>
+    <property name="height_request">300</property>
     <property name="title" translatable="yes">Call history</property>
     <property name="window_position">center</property>
     <property name="icon_name">gastify</property>
@@ -28,37 +28,15 @@
         <property name="orientation">vertical</property>
         <child>
           <object class="GtkHBox" id="hbox1">
-            <property name="visible">True</property>
-            <property name="border_width">6</property>
-            <child>
-              <object class="GtkImage" id="image1">
-                <property name="visible">True</property>
-                <property name="icon_name">stock_landline-phone</property>
-                <property name="icon-size">5</property>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="position">0</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkLabel" id="label1">
-                <property name="visible">True</property>
-                <property name="label" translatable="yes">Call:</property>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">False</property>
-                <property name="padding">10</property>
-                <property name="position">1</property>
-              </packing>
-            </child>
+            <property name="height_request">36</property>
+            <property name="border_width">3</property>
             <child>
               <object class="GtkEntry" id="call_number">
                 <property name="visible">True</property>
                 <property name="sensitive">False</property>
                 <property name="can_focus">True</property>
                 <property name="invisible_char">&#x2022;</property>
+                <property name="shadow_type">none</property>
               </object>
               <packing>
                 <property name="padding">4</property>
@@ -71,12 +49,17 @@
                 <property name="layout_style">start</property>
                 <child>
                   <object class="GtkButton" id="call">
-                    <property name="label">gtk-ok</property>
                     <property name="visible">True</property>
                     <property name="sensitive">False</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
-                    <property name="use_stock">True</property>
+                    <property name="image_position">bottom</property>
+                    <child>
+                      <object class="GtkImage" id="image1">
+                        <property name="visible">True</property>
+                        <property name="icon_name">call-start</property>
+                      </object>
+                    </child>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -267,7 +250,6 @@
       <object class="GtkImageMenuItem" id="menu_copy_num">
         <property name="label" translatable="yes">Copy CID to clipboard</property>
         <property name="visible">True</property>
-        <property name="image">image2</property>
         <property name="use_stock">False</property>
         <property name="accel_group">accelgroup1</property>
         <signal name="activate" handler="on_menu_copy_num_activate"/>
@@ -327,7 +309,7 @@
   <object class="GtkStatusIcon" id="icon">
     <property name="icon_name">gastify</property>
     <property name="has_tooltip">True</property>
-    <property name="tooltip_text" translatable="yes">Gastify Call Notification</property>
+    <property name="tooltip_text">Gastify Call Notification</property>
     <signal name="activate" handler="on_icon_activate" object="window1"/>
     <signal name="popup_menu" handler="on_icon_popup_menu" object="menu1"/>
   </object>

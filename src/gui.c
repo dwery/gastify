@@ -139,25 +139,26 @@ GtkStatusIcon * initializeGui(void)
 
 	/* load history-window */
 	historyDialog = (GtkWindow *) gtk_builder_get_object(builder, "window1");
-
+	treeView = (GtkTreeView *) gtk_builder_get_object(builder, "treeview");
+	store = (GtkListStore *) gtk_builder_get_object(builder, "liststore1");
+	
 	if (callcmd) {
 		gtk_widget_set_sensitive((GtkWidget *)
 			gtk_builder_get_object(builder, "call_number"), TRUE);
+			
 		gtk_widget_set_sensitive((GtkWidget *)
 			gtk_builder_get_object(builder, "call"), TRUE);
 
 		g_signal_connect((GtkWidget *) gtk_builder_get_object(builder, "call"),
 			"clicked", GTK_SIGNAL_FUNC(on_call_clicked),
 			gtk_builder_get_object(builder, "call_number"));
+	
+		g_signal_connect(treeView, "row-activated", (GCallback) on_treeview_row_activated,
+			gtk_builder_get_object(builder, "call_number"));
+			
+		gtk_widget_set_visible((GtkWidget *)gtk_builder_get_object(builder, "hbox1"), TRUE);
 	}
-
-	treeView = (GtkTreeView *) gtk_builder_get_object(builder, "treeview");
-	store = (GtkListStore *) gtk_builder_get_object(builder, "liststore1");
-
-	g_signal_connect(treeView, "row-activated",
-		(GCallback) on_treeview_row_activated,
-		gtk_builder_get_object(builder, "call_number"));
-
+	
 	notify_init("gastify");
 
 	return statusIcon;
