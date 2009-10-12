@@ -22,7 +22,7 @@ msgstr	""
 msgid	"a client for app_notify"
 msgstr	""
 
-msgid	"Call history"
+msgid	"Call History"
 msgstr	""
 
 msgid	"Show notifications"

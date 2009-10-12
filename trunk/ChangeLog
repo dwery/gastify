@@ -1,3 +1,7 @@
+2009-10-12 penschuck  <penschuck@gmail.com>
+
+	* ui should now be Gnome HIG compatible
+
 2009-10-09 penschuck  <penschuck@gmail.com>
 
 	* small changes in gastify ui to hide callbar until -c is given
