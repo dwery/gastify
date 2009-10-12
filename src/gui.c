@@ -265,7 +265,7 @@ static void do_call(const char *number)
 		gchar *cmd;
 		GError *err;
 
-		cmd = g_strconcat(callcmd, " ", number, NULL);
+		cmd = g_strconcat(callcmd, " '", number, "'", NULL);
 
 		g_spawn_command_line_async(cmd, &err);
 
