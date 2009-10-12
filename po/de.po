@@ -20,7 +20,7 @@ msgstr "Gastify Anrufbenachrichtigung"
 msgid "a client for app_notify"
 msgstr "ein Client für app_notify"
 
-msgid "Call history"
+msgid "Call History"
 msgstr "Anrufprotokoll"
 
 msgid "Show notifications"

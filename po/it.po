@@ -19,7 +19,7 @@ msgstr "Gastify Notifica Chiamate"
 msgid "a client for app_notify"
 msgstr "un client per app_notify"
 
-msgid "Call history"
+msgid "Call History"
 msgstr "Elenco chiamate"
 
 msgid "Show notifications"

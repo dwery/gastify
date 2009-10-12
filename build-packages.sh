@@ -13,9 +13,11 @@ CURRENT_DIR=`pwd`
 ## whoooOOOSH
 ## a .tar.gz
 make maintainer-clean
+rm gastify-$VERSION.tar.gz gastify_$VERSION-1_i386.deb
+
 cd ..
 mv $CURRENT_DIR gastify-$VERSION
-tar --exclude=.svn --owner 0 -zcf gastify-$VERSION.tar.gz gastify-$VERSION
+tar --exclude=.svn --exclude=*-pak --owner 0 -zcf gastify-$VERSION.tar.gz gastify-$VERSION
 mv gastify-$VERSION $CURRENT_DIR
 mv gastify-$VERSION.tar.gz $CURRENT_DIR
 cd $CURRENT_DIR
@@ -60,3 +62,4 @@ checkinstall -y -R \
         --delspec
 
 make maintainer-clean
+rm -rf ./doc-pak
