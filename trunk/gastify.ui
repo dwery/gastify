@@ -37,7 +37,7 @@
               <object class="GtkLabel" id="label1">
                 <property name="visible">True</property>
                 <property name="xalign">0</property>
-                <property name="label" translatable="yes">Initiate Call:</property>
+                <property name="label" translatable="yes">Call:</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -112,7 +112,7 @@
                 <signal name="popup_menu" handler="on_treeview_popup_menu"/>
                 <child>
                   <object class="GtkTreeViewColumn" id="treeview-date">
-                    <property name="title">Date</property>
+                    <property name="title" translatable="yes">Date</property>
                     <child>
                       <object class="GtkCellRendererText" id="cellrenderertext1"/>
                       <attributes>
@@ -145,7 +145,7 @@
                 </child>
                 <child>
                   <object class="GtkTreeViewColumn" id="treeview-name">
-                    <property name="title">Name</property>
+                    <property name="title" translatable="yes">Name</property>
                     <child>
                       <object class="GtkCellRendererText" id="cellrenderertext4"/>
                       <attributes>
@@ -308,7 +308,7 @@
   <object class="GtkStatusIcon" id="icon">
     <property name="icon_name">gastify</property>
     <property name="has_tooltip">True</property>
-    <property name="tooltip_text">Gastify Call Notification</property>
+    <property name="tooltip_text" translatable="yes">Gastify Call Notification</property>
     <signal name="activate" handler="on_icon_activate" object="window1"/>
     <signal name="popup_menu" handler="on_icon_popup_menu" object="menu1"/>
   </object>
