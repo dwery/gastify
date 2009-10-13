@@ -237,7 +237,7 @@ void addToHistory(gchar *cid, gchar *extension, gchar *name)
 
 	/* get timestamp and assemble line*/
 	time(&timet);
-	strftime(timestamp, 64, "%a %H:%M:%S", localtime(&timet));
+	strftime(timestamp, 64, "%F %H:%M:%S", localtime(&timet));
 
 	gtk_list_store_insert(store, &iter, 0);
 	gtk_list_store_set(store, &iter,
