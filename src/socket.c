@@ -94,3 +94,4 @@ void watchSocket(int port, GtkStatusIcon *icon)
 
 	printf(_("waiting for data on port UDP %i\n"), port);
 }
+

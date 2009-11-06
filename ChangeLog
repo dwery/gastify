@@ -1,3 +1,14 @@
+2009-11-06 penschuck  <penschuck@gmail.com>
+
+	* released v1.3.0
+
+2009-11-04 penschuck  <penschuck@gmail.com>
+
+	* changed date in listview
+	* added missing copy icon to context menu
+	* reverted r65
+	* added Alessandro Zummo to AUTHORS
+
 2009-10-12 penschuck  <penschuck@gmail.com>
 
 	* ui should now be Gnome HIG compatible

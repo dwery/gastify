@@ -249,6 +249,7 @@
       <object class="GtkImageMenuItem" id="menu_copy_num">
         <property name="label" translatable="yes">Copy CID to clipboard</property>
         <property name="visible">True</property>
+        <property name="image">image2</property>
         <property name="use_stock">False</property>
         <property name="accel_group">accelgroup1</property>
         <signal name="activate" handler="on_menu_copy_num_activate"/>

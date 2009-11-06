@@ -79,7 +79,7 @@ void onShowAbout(void)
 		"Alessandro Zummo <a.zummo@towertech.it>",
 		NULL
 	};
-	
+
 	gtk_show_about_dialog(NULL,
 		"name", PACKAGE,
 		"version", VERSION,
@@ -92,7 +92,7 @@ void onShowAbout(void)
 		"website-label", "Gastify Website",
 		"authors", authors,
 		NULL);
-					
+
 	g_free(license);
 }
 
@@ -156,7 +156,7 @@ GtkStatusIcon * initializeGui(void)
 		g_signal_connect(treeView, "row-activated", (GCallback) on_treeview_row_activated,
 			gtk_builder_get_object(builder, "call_number"));
 			
-		gtk_widget_set_visible((GtkWidget *)gtk_builder_get_object(builder, "hbox1"), TRUE);
+		gtk_widget_show(GTK_WIDGET(gtk_builder_get_object(builder, "hbox1")));
 	}
 	
 	notify_init("gastify");
@@ -237,7 +237,7 @@ void addToHistory(gchar *cid, gchar *extension, gchar *name)
 
 	/* get timestamp and assemble line*/
 	time(&timet);
-	strftime(timestamp, 64, "%F %H:%M:%S", localtime(&timet));
+	strftime(timestamp, 64, "%a %d. %b %H:%M", localtime(&timet));
 
 	gtk_list_store_insert(store, &iter, 0);
 	gtk_list_store_set(store, &iter,
@@ -265,7 +265,7 @@ static void do_call(const char *number)
 		gchar *cmd;
 		GError *err;
 
-		cmd = g_strconcat(callcmd, " '", number, "'", NULL);
+		cmd = g_strconcat(callcmd, " ", number, NULL);
 
 		g_spawn_command_line_async(cmd, &err);
 
@@ -416,20 +416,8 @@ gboolean on_treeview_button_press_event(GtkTreeView *treeview, GdkEventButton *e
 	return FALSE;
 }
 
-static gboolean stop_blinking(gpointer user_data)
-{
-	gtk_status_icon_set_blinking(GTK_STATUS_ICON(user_data), FALSE);
-	return FALSE;
-}
-
-/* blink a couple of times when the user selects the
- * window's destroy button
- */
-gboolean on_window1_delete_event(GtkWidget *window)
+void on_window1_delete_event(GtkWidget *window)
 {
 	gtk_widget_hide(window);
-	gtk_status_icon_set_blinking(statusIcon, TRUE);
-	g_timeout_add_seconds(2, &stop_blinking, statusIcon);
 
-	return TRUE;
 }
