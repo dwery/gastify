@@ -1,0 +1,100 @@
+# gastify
+# Copyright (C) 2006-2009
+# This file is distributed under the same license as the gastify package.
+# Jan Penschuck <penschuck@gmail.com>, 2007.
+#
+#, fuzzy
+msgid	""
+msgstr	""
+"Project-Id-Version: gastify 1.3.0\n"
+	"Report-Msgid-Bugs-To: \n"
+	"POT-Creation-Date: 2007-06-28 19:46+0200\n"
+	"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+	"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+	"Language-Team: LANGUAGE <LL@li.org>\n"
+	"MIME-Version: 1.0\n"
+	"Content-Type: text/plain; charset=UTF-8\n"
+	"Content-Transfer-Encoding: 8bit\n"
+
+msgid	"Gastify Call Notification"
+msgstr	""
+
+msgid	"a client for app_notify"
+msgstr	""
+
+msgid	"Call History"
+msgstr	""
+
+msgid	"Show notifications"
+msgstr	""
+
+msgid	"Call:"
+msgstr	""
+
+msgid	"Date"
+msgstr	""
+
+msgid	"Name"
+msgstr	""
+
+msgid	"Copy CID to clipboard"
+msgstr	""
+
+msgid	"Copy Name to clipboard"
+msgstr	""
+
+msgid	"Lookup CID on Google Search"
+msgstr	""
+
+msgid	"Lookup CID on Google Phonebook"
+msgstr	""
+
+#, c-format
+msgid	" for "
+msgstr	""
+
+#, c-format
+msgid	"this is not a gastify message. waiting...\n"
+msgstr	""
+
+#, c-format
+msgid	"cannot open socket\n"
+msgstr	""
+
+#, c-format
+msgid	"cannot bind port %d\n"
+msgstr	""
+
+#, c-format
+msgid	"waiting for data on port UDP %i\n"
+msgstr	""
+
+msgid	"Print version info"
+msgstr	""
+
+msgid	"Listen on given port"
+msgstr	""
+
+msgid	"Display popup given time"
+msgstr	""
+
+msgid	"Forks in the background"
+msgstr	""
+
+msgid	"Executes command on new call"
+msgstr	""
+
+msgid	"Command to execute to initiate a call"
+msgstr	""
+
+msgid	"Strip the leading digit on the received CID"
+msgstr	""
+
+msgid	"SECONDS"
+msgstr	""
+
+msgid	"COMMAND"
+msgstr	""
+
+msgid	"COMMAND TO EXECUTE"
+msgstr	""

@@ -1,0 +1,332 @@
+<?xml version="1.0"?>
+<interface>
+  <requires lib="gtk+" version="2.16"/>
+  <!-- interface-naming-policy project-wide -->
+  <object class="GtkListStore" id="liststore1">
+    <columns>
+      <!-- column-name Date -->
+      <column type="gchararray"/>
+      <!-- column-name Extension -->
+      <column type="gchararray"/>
+      <!-- column-name CID -->
+      <column type="gchararray"/>
+      <!-- column-name Name -->
+      <column type="gchararray"/>
+    </columns>
+  </object>
+  <object class="GtkWindow" id="window1">
+    <property name="width_request">480</property>
+    <property name="height_request">300</property>
+    <property name="border_width">6</property>
+    <property name="title" translatable="yes">Call History</property>
+    <property name="window_position">center</property>
+    <property name="icon_name">gastify</property>
+    <property name="type_hint">dialog</property>
+    <property name="deletable">False</property>
+    <signal name="delete_event" handler="on_window1_delete_event"/>
+    <child>
+      <object class="GtkVBox" id="vbox1">
+        <property name="visible">True</property>
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="GtkHBox" id="hbox1">
+            <property name="height_request">36</property>
+            <property name="border_width">6</property>
+            <property name="spacing">7</property>
+            <child>
+              <object class="GtkLabel" id="label1">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">Call:</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="call_number">
+                <property name="visible">True</property>
+                <property name="sensitive">False</property>
+                <property name="can_focus">True</property>
+                <property name="invisible_char">&#x2022;</property>
+                <property name="shadow_type">none</property>
+              </object>
+              <packing>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkHButtonBox" id="hbuttonbox2">
+                <property name="visible">True</property>
+                <property name="layout_style">start</property>
+                <child>
+                  <object class="GtkButton" id="call">
+                    <property name="visible">True</property>
+                    <property name="sensitive">False</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="image_position">bottom</property>
+                    <child>
+                      <object class="GtkImage" id="image1">
+                        <property name="visible">True</property>
+                        <property name="icon_name">call-start</property>
+                      </object>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">False</property>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="position">2</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkScrolledWindow" id="scrolledwindow1">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="border_width">6</property>
+            <property name="hscrollbar_policy">automatic</property>
+            <property name="vscrollbar_policy">automatic</property>
+            <property name="shadow_type">in</property>
+            <child>
+              <object class="GtkTreeView" id="treeview">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="model">liststore1</property>
+                <property name="headers_clickable">False</property>
+                <property name="search_column">0</property>
+                <signal name="button_press_event" handler="on_treeview_button_press_event"/>
+                <signal name="popup_menu" handler="on_treeview_popup_menu"/>
+                <child>
+                  <object class="GtkTreeViewColumn" id="treeview-date">
+                    <property name="title" translatable="yes">Date</property>
+                    <child>
+                      <object class="GtkCellRendererText" id="cellrenderertext1"/>
+                      <attributes>
+                        <attribute name="text">0</attribute>
+                      </attributes>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkTreeViewColumn" id="treeview-extension">
+                    <property name="title">Ext</property>
+                    <child>
+                      <object class="GtkCellRendererText" id="cellrenderertext3"/>
+                      <attributes>
+                        <attribute name="text">1</attribute>
+                      </attributes>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkTreeViewColumn" id="treeview-cid">
+                    <property name="title">CID</property>
+                    <child>
+                      <object class="GtkCellRendererText" id="cellrenderertext2"/>
+                      <attributes>
+                        <attribute name="text">2</attribute>
+                      </attributes>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkTreeViewColumn" id="treeview-name">
+                    <property name="title" translatable="yes">Name</property>
+                    <child>
+                      <object class="GtkCellRendererText" id="cellrenderertext4"/>
+                      <attributes>
+                        <attribute name="text">3</attribute>
+                      </attributes>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHButtonBox" id="hbuttonbox1">
+            <property name="visible">True</property>
+            <property name="border_width">6</property>
+            <property name="layout_style">edge</property>
+            <child>
+              <object class="GtkButton" id="button2">
+                <property name="label">gtk-clear</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="use_stock">True</property>
+                <property name="focus_on_click">False</property>
+                <signal name="clicked" handler="onClearHistory"/>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="button1">
+                <property name="label">gtk-close</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="has_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="use_stock">True</property>
+                <signal name="clicked" handler="gtk_widget_hide" object="window1"/>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="position">2</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkMenu" id="menu1">
+    <property name="visible">True</property>
+    <child>
+      <object class="GtkCheckMenuItem" id="notification-toggle">
+        <property name="visible">True</property>
+        <property name="label" translatable="yes">Show notifications</property>
+        <property name="use_underline">True</property>
+        <property name="active">True</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkImageMenuItem" id="about">
+        <property name="label">gtk-about</property>
+        <property name="visible">True</property>
+        <property name="use_underline">True</property>
+        <property name="use_stock">True</property>
+        <property name="accel_group">accelgroup1</property>
+        <signal name="activate" handler="onShowAbout"/>
+      </object>
+    </child>
+    <child>
+      <object class="GtkSeparatorMenuItem" id="separator">
+        <property name="visible">True</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkImageMenuItem" id="quit">
+        <property name="label">gtk-quit</property>
+        <property name="visible">True</property>
+        <property name="use_underline">True</property>
+        <property name="use_stock">True</property>
+        <property name="accel_group">accelgroup1</property>
+        <signal name="activate" handler="gtk_main_quit"/>
+      </object>
+    </child>
+  </object>
+  <object class="GtkMenu" id="row-context-menu">
+    <property name="visible">True</property>
+    <child>
+      <object class="GtkImageMenuItem" id="menu_copy_num">
+        <property name="label" translatable="yes">Copy CID to clipboard</property>
+        <property name="visible">True</property>
+        <property name="image">image2</property>
+        <property name="use_stock">False</property>
+        <property name="accel_group">accelgroup1</property>
+        <signal name="activate" handler="on_menu_copy_num_activate"/>
+      </object>
+    </child>
+    <child>
+      <object class="GtkImageMenuItem" id="menu_copy_name">
+        <property name="label" translatable="yes">Copy Name to clipboard</property>
+        <property name="visible">True</property>
+        <property name="image">image3</property>
+        <property name="use_stock">False</property>
+        <property name="accel_group">accelgroup1</property>
+        <signal name="activate" handler="on_menu_copy_name_activate"/>
+      </object>
+    </child>
+    <child>
+      <object class="GtkSeparatorMenuItem" id="separatormenuitem1">
+        <property name="visible">True</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkImageMenuItem" id="menu_lookup_gsearch">
+        <property name="label" translatable="yes">Lookup CID on Google Search</property>
+        <property name="visible">True</property>
+        <property name="image">image4</property>
+        <property name="use_stock">False</property>
+        <property name="accel_group">accelgroup1</property>
+        <signal name="activate" handler="on_menu_lookup_gsearch_activate"/>
+      </object>
+    </child>
+    <child>
+      <object class="GtkImageMenuItem" id="menu_lookup_gphone">
+        <property name="label" translatable="yes">Lookup CID on Google Phonebook</property>
+        <property name="visible">True</property>
+        <property name="image">image5</property>
+        <property name="use_stock">False</property>
+        <property name="accel_group">accelgroup1</property>
+        <signal name="activate" handler="on_menu_lookup_gphone_activate"/>
+      </object>
+    </child>
+    <child>
+      <object class="GtkSeparatorMenuItem" id="separatormenuitem2">
+        <property name="visible">True</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkImageMenuItem" id="menu_remove">
+        <property name="label">gtk-remove</property>
+        <property name="visible">True</property>
+        <property name="use_underline">True</property>
+        <property name="use_stock">True</property>
+        <signal name="activate" handler="on_menu_remove_activate"/>
+      </object>
+    </child>
+  </object>
+  <object class="GtkAccelGroup" id="accelgroup1"/>
+  <object class="GtkStatusIcon" id="icon">
+    <property name="icon_name">gastify</property>
+    <property name="has_tooltip">True</property>
+    <property name="tooltip_text" translatable="yes">Gastify Call Notification</property>
+    <signal name="activate" handler="on_icon_activate" object="window1"/>
+    <signal name="popup_menu" handler="on_icon_popup_menu" object="menu1"/>
+  </object>
+  <object class="GtkImage" id="image2">
+    <property name="visible">True</property>
+    <property name="stock">gtk-copy</property>
+  </object>
+  <object class="GtkImage" id="image3">
+    <property name="visible">True</property>
+    <property name="stock">gtk-copy</property>
+  </object>
+  <object class="GtkImage" id="image4">
+    <property name="visible">True</property>
+    <property name="stock">gtk-find</property>
+  </object>
+  <object class="GtkImage" id="image5">
+    <property name="visible">True</property>
+    <property name="stock">gtk-find</property>
+  </object>
+</interface>

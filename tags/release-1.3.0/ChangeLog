@@ -1,0 +1,202 @@
+2009-11-06 penschuck  <penschuck@gmail.com>
+
+	* released v1.3.0
+
+2009-11-04 penschuck  <penschuck@gmail.com>
+
+	* changed date in listview
+	* added missing copy icon to context menu
+	* reverted r65
+	* added Alessandro Zummo to AUTHORS
+
+2009-10-12 penschuck  <penschuck@gmail.com>
+
+	* ui should now be Gnome HIG compatible
+
+2009-10-09 penschuck  <penschuck@gmail.com>
+
+	* small changes in gastify ui to hide callbar until -c is given
+	* some callbar ui rework
+	* bump to autotools 1.11
+	* typo fixes
+
+2009-10-06 penschuck  <penschuck@gmail.com>
+
+	* removed callscript.php and added a bash script to place a call
+
+2009-09-24 penschuck  <penschuck@gmail.com>
+
+        * reworked gettext files
+        * fixed --help translation
+	* some fixes in gui.c
+	* added extras folder
+	* added php script to call a number using asterisk manager
+
+2009-09-27  gettextize  <bug-gnu-gettext@gnu.org>
+
+	* m4/gettext.m4: New file, from gettext-0.17.
+	* m4/iconv.m4: New file, from gettext-0.17.
+	* m4/lib-ld.m4: New file, from gettext-0.17.
+	* m4/lib-link.m4: New file, from gettext-0.17.
+	* m4/lib-prefix.m4: New file, from gettext-0.17.
+	* m4/nls.m4: New file, from gettext-0.17.
+	* m4/po.m4: New file, from gettext-0.17.
+	* m4/progtest.m4: New file, from gettext-0.17.
+
+2009-09-24 penschuck  <penschuck@gmail.com>
+
+	* fixed glade translation markups
+	* fixed de translation
+
+2009-09-23 azummo <azummo-google@towertech.it>
+
+	* added better pixmaps	
+
+2009-09-22 azummo <azummo-google@towertech.it>
+
+	* the cid list is now a tree view with
+	* copy to clipboard and google search options.
+	* added --call-cmd, --strip-leading
+	* the call command is triggered by a double click on the
+	* treeview or by the quick call text entry field.
+
+2009-01-06  penschuck  <penschuck@gmail.com>
+
+    * dropped glade dep in favor of GtkBuilder
+    * fixed wrong init of GOptionEntry
+
+2008-09-24  penschuck  <penschuck@gmail.com>
+
+    * small change in log-format
+    * moved checkinstall.sh buildpackages.sh
+    * buildpackage.sh produces tarball too
+    * released v1.2.3
+
+2008-09-21  penschuck  <penschuck@gmail.com>
+
+    * switched license to LGPL3
+    * fixed --prefix at configure time
+    * small change in checkinstall.sh
+    * bumb to automake-1.10
+
+2008-09-19  penschuck  <penschuck@gmail.com>
+
+    * translation updates
+    * added script that generates a deb and a rpm: checkinstall.sh
+
+2008-09-16  penschuck  <penschuck@gmail.com>
+
+    * added ability to execute a cmd when new call arrives (-e)
+    * fixed --help, but still throws warning at compile time :/
+
+2008-09-15  penschuck  <penschuck@gmail.com>
+
+    * added ability to disable notifications in statusicon-menu
+
+2007-07-20  penschuck  <penschuck@gmail.com>
+
+    * compiles now with -Wall -O -W -Wshadow -pedantic
+
+2007-07-01  penschuck  <penschuck@gmail.com>
+
+    * 1.2.2 release
+   
+2007-06-28  penschuck  <penschuck@gmail.com>
+
+    * some about window fixes 
+
+2007-06-28  penschuck  <penschuck@gmail.com>
+
+    * more strcpy and strcat fixes
+
+2007-06-28  penschuck  <penschuck@gmail.com>
+
+    * removed linebreak in notification text
+
+2007-06-28  penschuck  <penschuck@gmail.com>
+
+    * gettext fixes
+
+2007-06-23  penschuck  <penschuck@gmail.com>
+
+    * 1.2.1 release
+    
+2007-06-21  penschuck  <penschuck@gmail.com>
+
+    * replaced strcpy and strcat with g_strconcat (more secure)
+    
+2007-06-21  penschuck  <penschuck@gmail.com>
+
+    * sort order in history window changed to: latest call on top now
+    
+2007-05-12  penschuck  <penschuck@gmail.com>
+
+    * code cleanups
+
+2007-03-10  penschuck  <penschuck@gmail.com>
+
+    * 1.2 release
+
+2007-03-10  penschuck  <penschuck@gmail.com>
+
+    * added statusicon change on call
+
+2007-03-10  penschuck  <penschuck@gmail.com>
+
+    * small pkg-config fix for glade in Makefie.am
+
+2006-11-02  penschuck  <penschuck@gmail.com>
+
+    * better icon
+
+2006-10-07  penschuck  <penschuck@gmail.com>
+
+    * 1.1 release
+
+2006-10-05  penschuck  <penschuck@gmail.com>
+
+    * changes how the app icon is handled 
+
+2006-10-03  penschuck  <penschuck@gmail.com>
+
+    * added scrollbars to log window
+
+2006-10-03  penschuck  <penschuck@gmail.com>
+
+    * fixed bug with history window-close
+	
+2006-10-02  penschuck  <penschuck@gmail.com>
+
+    * added german translation
+
+2006-10-02  gettextize  <bug-gnu-gettext@gnu.org>
+
+    * Makefile.am (SUBDIRS): Add po.
+    (ACLOCAL_AMFLAGS): Add -I m4.
+    (EXTRA_DIST): Add config.rpath, m4/ChangeLog.
+    * configure.in (AC_OUTPUT): Add po/Makefile.in.
+	
+2006-09-29  penschuck  <penschuck@gmail.com>
+
+    * code reconstruction
+
+2006-09-29  penschuck  <penschuck@gmail.com>
+
+    * replaced my ugly options parser with the glib commandline option parser
+
+2006-09-28  penschuck  <penschuck@gmail.com>
+
+    * added Homepage to the about dialog
+
+2006-09-28  penschuck  <penschuck@gmail.com>
+
+    * added timestamps to history
+
+2006-09-28  penschuck  <penschuck@gmail.com>
+
+    * click again on trayicon closes history window now
+
+
+2006-09-26  penschuck  <penschuck@gmail.com>
+
+    * initial 1.0 release
