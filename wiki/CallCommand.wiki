@@ -1,3 +1,4 @@
+#labels Featured
 = An Example for the usage of the --call-cmd switch =
 
 [http://code.google.com/p/gastify/source/browse/trunk/extras/placecall.sh Here] is a bash script which uses the asterisk manager to make a call.
