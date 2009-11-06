@@ -62,4 +62,4 @@ checkinstall -y -R \
         --delspec
 
 make maintainer-clean
-rm -rf ./doc-pak
+rm -rf doc-pak/
