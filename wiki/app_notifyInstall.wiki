@@ -1,7 +1,7 @@
 #labels Featured
 = Installation =
 
-Download app_notify here. Unpack.
+Download app_notify [http://mezzo.net/asterisk/app_notify.html here]. Unpack.
 
 *< asterisk 1.6*
 
