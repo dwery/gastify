@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2006-2008 by Jan Penschuck
+ * Copyright (C) 2006-2010 by Jan Penschuck
  *
  * This file is part of gastify.
  *

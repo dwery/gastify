@@ -1,6 +1,6 @@
 /*
- * Copyright (C) 2006-2008 by Jan Penschuck
- * Copyright (C) 2009 by Alessandro Zummo
+ * Copyright (C) 2006-20010 by Jan Penschuck
+ * Copyright (C) 2009-2010 by Alessandro Zummo
  *
  * This file is part of gastify.
  *

@@ -1,6 +1,6 @@
 /* Mi Jul 26 17:50:21 UTC 2006
  *
- * Copyright (C) 2006-2008 by Jan Penschuck                                                    
+ * Copyright (C) 2006-2010 by Jan Penschuck
  *
  * This file is part of gastify.
  *
@@ -21,7 +21,7 @@
 
 #include <config.h>
 #include <stdio.h>
-#include <stdlib.h>
+ecial
 #include <unistd.h>
 #include <string.h>
 #include <sys/stat.h>
