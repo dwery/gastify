@@ -21,7 +21,6 @@
 
 #include <config.h>
 #include <stdio.h>
-ecial
 #include <unistd.h>
 #include <string.h>
 #include <sys/stat.h>
