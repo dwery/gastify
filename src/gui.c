@@ -191,7 +191,7 @@ static void notifyPopup(gchar *title, gchar *message, GtkStatusIcon *icon)
 	
 	if (gtk_check_menu_item_get_active(toggle)) {
 
-		notify = notify_notification_new(title, message, "stock_landline-phone", NULL);
+		notify = notify_notification_new(title, message, "stock_landline-phone");
 		notify_notification_set_timeout(notify, popuptime * 1000);
 		notify_notification_attach_to_status_icon(notify, icon);
 
